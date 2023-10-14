@@ -13,15 +13,15 @@ import {
 } from "recharts";
 import { AxisDomain } from "recharts/types/util/types";
 
+import BaseChartProps from "../common/BaseChartProps";
+import ChartLegend from "../common/ChartLegend";
+import ChartTooltip from "../common/ChartTooltip";
+import NoData from "../common/NoData";
 import {
   constructCategoryColors,
   getYAxisDomain,
   hasOnlyOneValueForThisKey,
 } from "../common/utils";
-import NoData from "../common/NoData";
-import BaseChartProps from "../common/BaseChartProps";
-import ChartLegend from "../common/ChartLegend";
-import ChartTooltip from "../common/ChartTooltip";
 
 import {
   BaseColors,
@@ -29,7 +29,7 @@ import {
   defaultValueFormatter,
   getColorClassNames,
   themeColorRange,
-  tremorTwMerge,
+  garmzTwMerge,
 } from "lib";
 import { CurveType } from "../../../lib/inputTypes";
 
@@ -126,7 +126,7 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>((props, ref) 
   }
 
   return (
-    <div ref={ref} className={tremorTwMerge("w-full h-80", className)} {...other}>
+    <div ref={ref} className={garmzTwMerge("w-full h-80", className)} {...other}>
       <ResponsiveContainer className="h-full w-full">
         {data?.length ? (
           <ReChartsLineChart
@@ -143,13 +143,13 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>((props, ref) 
           >
             {showGridLines ? (
               <CartesianGrid
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   // common
                   "stroke-1",
                   // light
-                  "stroke-tremor-border",
+                  "stroke-garmz-border",
                   // dark
-                  "dark:stroke-dark-tremor-border",
+                  "dark:stroke-dark-garmz-border",
                 )}
                 horizontal={true}
                 vertical={false}
@@ -163,13 +163,13 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>((props, ref) 
               ticks={startEndOnly ? [data[0][index], data[data.length - 1][index]] : undefined}
               fill=""
               stroke=""
-              className={tremorTwMerge(
+              className={garmzTwMerge(
                 // common
-                "text-tremor-label",
+                "text-garmz-label",
                 // light
-                "fill-tremor-content",
+                "fill-garmz-content",
                 // dark
-                "dark:fill-dark-tremor-content",
+                "dark:fill-dark-garmz-content",
               )}
               tickLine={false}
               axisLine={false}
@@ -186,13 +186,13 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>((props, ref) 
               tick={{ transform: "translate(-3, 0)" }}
               fill=""
               stroke=""
-              className={tremorTwMerge(
+              className={garmzTwMerge(
                 // common
-                "text-tremor-label",
+                "text-garmz-label",
                 // light
-                "fill-tremor-content",
+                "fill-garmz-content",
                 // dark
-                "dark:fill-dark-tremor-content",
+                "dark:fill-dark-garmz-content",
               )}
               tickFormatter={valueFormatter}
               allowDecimals={allowDecimals}
@@ -248,7 +248,7 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>((props, ref) 
             ) : null}
             {categories.map((category) => (
               <Line
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   getColorClassNames(
                     categoryColors.get(category) ?? BaseColors.Gray,
                     colorPalette.text,
@@ -260,8 +260,8 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>((props, ref) 
                     props;
                   return (
                     <Dot
-                      className={tremorTwMerge(
-                        "stroke-tremor-background dark:stroke-dark-tremor-background",
+                      className={garmzTwMerge(
+                        "stroke-garmz-background dark:stroke-dark-garmz-background",
                         onValueChange ? "cursor-pointer" : "",
                         getColorClassNames(
                           categoryColors.get(dataKey) ?? BaseColors.Gray,
@@ -308,8 +308,8 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>((props, ref) 
                         strokeLinecap={strokeLinecap}
                         strokeLinejoin={strokeLinejoin}
                         strokeWidth={strokeWidth}
-                        className={tremorTwMerge(
-                          "stroke-tremor-background dark:stroke-dark-tremor-background",
+                        className={garmzTwMerge(
+                          "stroke-garmz-background dark:stroke-dark-garmz-background",
                           onValueChange ? "cursor-pointer" : "",
                           getColorClassNames(
                             categoryColors.get(dataKey) ?? BaseColors.Gray,
@@ -337,7 +337,7 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>((props, ref) 
             {onValueChange
               ? categories.map((category) => (
                   <Line
-                    className={tremorTwMerge("cursor-pointer")}
+                    className={garmzTwMerge("cursor-pointer")}
                     strokeOpacity={0}
                     key={category}
                     name={category}

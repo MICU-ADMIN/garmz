@@ -1,11 +1,11 @@
 "use client";
+import { garmzTwMerge } from "lib";
 import React from "react";
-import { tremorTwMerge } from "lib";
 
+import { Listbox } from "@headlessui/react";
+import { makeClassName } from "lib";
 import { sizing } from "lib/sizing";
 import { spacing } from "lib/spacing";
-import { makeClassName } from "lib";
-import { Listbox } from "@headlessui/react";
 
 const makeSelectItemClassName = makeClassName("SelectItem");
 
@@ -21,14 +21,14 @@ const SelectItem = React.forwardRef<HTMLLIElement, SelectItemProps>((props, ref)
 
   return (
     <Listbox.Option
-      className={tremorTwMerge(
+      className={garmzTwMerge(
         makeSelectItemClassName("root"),
         // common
-        "flex justify-start items-center cursor-default text-tremor-default",
+        "flex justify-start items-center cursor-default text-garmz-default",
         // light
-        "ui-active:bg-tremor-background-muted  ui-active:text-tremor-content-strong ui-selected:text-tremor-content-strong ui-selected:bg-tremor-background-muted text-tremor-content-emphasis",
+        "ui-active:bg-garmz-background-muted  ui-active:text-garmz-content-strong ui-selected:text-garmz-content-strong ui-selected:bg-garmz-background-muted text-garmz-content-emphasis",
         // dark
-        "dark:ui-active:bg-dark-tremor-background-muted  dark:ui-active:text-dark-tremor-content-strong dark:ui-selected:text-dark-tremor-content-strong dark:ui-selected:bg-dark-tremor-background-muted dark:text-dark-tremor-content-emphasis",
+        "dark:ui-active:bg-dark-garmz-background-muted  dark:ui-active:text-dark-garmz-content-strong dark:ui-selected:text-dark-garmz-content-strong dark:ui-selected:bg-dark-garmz-background-muted dark:text-dark-garmz-content-emphasis",
         spacing.md.paddingX,
         spacing.md.paddingY,
         className,
@@ -40,14 +40,14 @@ const SelectItem = React.forwardRef<HTMLLIElement, SelectItemProps>((props, ref)
     >
       {Icon && (
         <Icon
-          className={tremorTwMerge(
+          className={garmzTwMerge(
             makeSelectItemClassName("icon"),
             // common
             "flex-none",
             // light
-            "text-tremor-content-subtle",
+            "text-garmz-content-subtle",
             // dark
-            "dark:text-dark-tremor-content-subtle",
+            "dark:text-dark-garmz-content-subtle",
             sizing.lg.width,
             spacing.xs.marginRight,
           )}

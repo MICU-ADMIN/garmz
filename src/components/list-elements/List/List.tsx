@@ -1,5 +1,5 @@
+import { garmzTwMerge } from "lib";
 import React from "react";
-import { tremorTwMerge } from "lib";
 
 import { makeClassName } from "lib";
 
@@ -11,14 +11,14 @@ const List = React.forwardRef<HTMLUListElement, React.HTMLAttributes<HTMLUListEl
     return (
       <ul
         ref={ref}
-        className={tremorTwMerge(
+        className={garmzTwMerge(
           makeListClassName("root"),
           // common
           "w-full overflow-hidden divide-y",
           // light
-          "divide-tremor-border text-tremor-content",
+          "divide-garmz-border text-garmz-content",
           // dark
-          "dark:divide-dark-tremor-border dark:text-dark-tremor-content",
+          "dark:divide-dark-garmz-border dark:text-dark-garmz-content",
           className,
         )}
         {...other}

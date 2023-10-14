@@ -1,16 +1,17 @@
 "use client";
-import React from "react";
+import Tooltip, { useTooltip } from "components/util-elements/Tooltip/Tooltip";
 import {
   DeltaType,
   DeltaTypes,
-  Size,
   makeClassName,
-  spacing,
-  tremorTwMerge,
-  Sizes,
   mapInputsToDeltaType,
   mergeRefs,
+  Size,
+  Sizes,
+  spacing,
+  garmzTwMerge,
 } from "lib";
+import React from "react";
 import {
   badgeProportionsIconOnly,
   badgeProportionsWithText,
@@ -18,7 +19,6 @@ import {
   deltaIcons,
   iconSizes,
 } from "./styles";
-import Tooltip, { useTooltip } from "components/util-elements/Tooltip/Tooltip";
 
 const makeBadgeDeltaClassName = makeClassName("BadgeDelta");
 
@@ -48,10 +48,10 @@ const BadgeDelta = React.forwardRef<HTMLSpanElement, BadgeDeltaProps>((props, re
   return (
     <span
       ref={mergeRefs([ref, tooltipProps.refs.setReference])}
-      className={tremorTwMerge(
+      className={garmzTwMerge(
         makeBadgeDeltaClassName("root"),
         // common
-        "w-max flex-shrink-0 inline-flex justify-center items-center cursor-default rounded-tremor-full bg-opacity-20 dark:bg-opacity-25",
+        "w-max flex-shrink-0 inline-flex justify-center items-center cursor-default rounded-garmz-full bg-opacity-20 dark:bg-opacity-25",
         colors[mappedDeltaType].bgColor,
         colors[mappedDeltaType].textColor,
         badgeProportions[size].paddingX,
@@ -64,17 +64,17 @@ const BadgeDelta = React.forwardRef<HTMLSpanElement, BadgeDeltaProps>((props, re
     >
       <Tooltip text={tooltip} {...tooltipProps} />
       <Icon
-        className={tremorTwMerge(
+        className={garmzTwMerge(
           makeBadgeDeltaClassName("icon"),
           "shrink-0",
           children
-            ? tremorTwMerge(spacing.twoXs.negativeMarginLeft, spacing.xs.marginRight)
+            ? garmzTwMerge(spacing.twoXs.negativeMarginLeft, spacing.xs.marginRight)
             : iconSizes[size].height,
           iconSizes[size].width,
         )}
       />
       {children ? (
-        <p className={tremorTwMerge(makeBadgeDeltaClassName("text"), "text-sm whitespace-nowrap")}>
+        <p className={garmzTwMerge(makeBadgeDeltaClassName("text"), "text-sm whitespace-nowrap")}>
           {children}
         </p>
       ) : null}

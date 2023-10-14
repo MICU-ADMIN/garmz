@@ -1,6 +1,6 @@
+import { MinusIcon, PlusIcon } from "assets";
+import { makeClassName, mergeRefs, garmzTwMerge } from "lib";
 import React, { useRef } from "react";
-import { makeClassName, mergeRefs, tremorTwMerge } from "lib";
-import { PlusIcon, MinusIcon } from "assets";
 import BaseInput, { BaseInputProps } from "../BaseInput";
 
 export interface NumberInputProps
@@ -12,10 +12,10 @@ export interface NumberInputProps
 }
 
 const baseArrowClasses =
-  "flex mx-auto text-tremor-content-subtle dark:text-dark-tremor-content-subtle";
+  "flex mx-auto text-garmz-content-subtle dark:text-dark-garmz-content-subtle";
 
 const enabledArrowClasses =
-  "cursor-pointer hover:text-tremor-content dark:hover:text-dark-tremor-content";
+  "cursor-pointer hover:text-garmz-content dark:hover:text-dark-garmz-content";
 
 const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>((props, ref) => {
   const { onSubmit, enableStepper = true, disabled, onValueChange, onChange, ...other } = props;
@@ -72,7 +72,7 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>((props,
       }}
       stepper={
         enableStepper ? (
-          <div className={tremorTwMerge("flex justify-center align-middle")}>
+          <div className={garmzTwMerge("flex justify-center align-middle")}>
             <div
               tabIndex={-1}
               onClick={(e) => e.preventDefault()}
@@ -83,10 +83,10 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>((props,
                 inputRef.current?.stepDown();
                 inputRef.current?.dispatchEvent(new Event("input", { bubbles: true }));
               }}
-              className={tremorTwMerge(
+              className={garmzTwMerge(
                 !disabled && enabledArrowClasses,
                 baseArrowClasses,
-                "group py-[10px] px-2.5 border-l border-tremor-border dark:border-dark-tremor-border",
+                "group py-[10px] px-2.5 border-l border-garmz-border dark:border-dark-garmz-border",
               )}
             >
               <MinusIcon
@@ -106,10 +106,10 @@ const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>((props,
                 inputRef.current?.stepUp();
                 inputRef.current?.dispatchEvent(new Event("input", { bubbles: true }));
               }}
-              className={tremorTwMerge(
+              className={garmzTwMerge(
                 !disabled && enabledArrowClasses,
                 baseArrowClasses,
-                "group py-[10px] px-2.5 border-l border-tremor-border dark:border-dark-tremor-border",
+                "group py-[10px] px-2.5 border-l border-garmz-border dark:border-dark-garmz-border",
               )}
             >
               <PlusIcon

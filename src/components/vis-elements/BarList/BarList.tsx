@@ -1,15 +1,15 @@
-import React from "react";
 import {
+  Color,
   defaultValueFormatter,
   getColorClassNames,
   makeClassName,
   sizing,
   spacing,
-  Color,
+  garmzTwMerge,
   ValueFormatter,
-  tremorTwMerge,
 } from "lib";
 import { colorPalette } from "lib/theme";
+import React from "react";
 
 const makeBarListClassName = makeClassName("BarList");
 
@@ -47,7 +47,7 @@ const BarList = React.forwardRef<HTMLDivElement, BarListProps>((props, ref) => {
     data = [],
     color,
     valueFormatter = defaultValueFormatter,
-    showAnimation = true,
+    showAnimation = false,
     className,
     ...other
   } = props;
@@ -59,7 +59,7 @@ const BarList = React.forwardRef<HTMLDivElement, BarListProps>((props, ref) => {
   return (
     <div
       ref={ref}
-      className={tremorTwMerge(
+      className={garmzTwMerge(
         makeBarListClassName("root"),
         "flex justify-between",
         spacing.threeXl.spaceX,
@@ -67,22 +67,22 @@ const BarList = React.forwardRef<HTMLDivElement, BarListProps>((props, ref) => {
       )}
       {...other}
     >
-      <div className={tremorTwMerge(makeBarListClassName("bars"), "relative w-full")}>
+      <div className={garmzTwMerge(makeBarListClassName("bars"), "relative w-full")}>
         {data.map((item, idx) => {
           const Icon = item.icon;
 
           return (
             <div
               key={item.key ?? item.name}
-              className={tremorTwMerge(
+              className={garmzTwMerge(
                 makeBarListClassName("bar"),
                 // common
-                "flex items-center rounded-tremor-small bg-opacity-20",
+                "flex items-center rounded-garmz-small bg-opacity-30",
                 rowHeight,
                 item.color || color
                   ? getColorClassNames(item.color ?? (color as Color), colorPalette.background)
                       .bgColor
-                  : "bg-tremor-brand-subtle dark:bg-dark-tremor-brand-subtle",
+                  : "bg-garmz-brand-subtle dark:bg-dark-garmz-brand-subtle dark:bg-opacity-30",
                 idx === data.length - 1 ? spacing.none.marginBottom : spacing.sm.marginBottom,
               )}
               style={{
@@ -90,17 +90,17 @@ const BarList = React.forwardRef<HTMLDivElement, BarListProps>((props, ref) => {
                 transition: showAnimation ? "all 1s" : "",
               }}
             >
-              <div className={tremorTwMerge("absolute max-w-full flex", spacing.sm.left)}>
+              <div className={garmzTwMerge("absolute max-w-full flex", spacing.sm.left)}>
                 {Icon ? (
                   <Icon
-                    className={tremorTwMerge(
+                    className={garmzTwMerge(
                       makeBarListClassName("barIcon"),
                       // common
                       "flex-none",
                       // light
-                      "text-tremor-content",
+                      "text-garmz-content",
                       // dark
-                      "dark:text-dark-tremor-content",
+                      "dark:text-dark-garmz-content",
                       sizing.lg.height,
                       sizing.lg.width,
                       spacing.md.marginRight,
@@ -112,28 +112,28 @@ const BarList = React.forwardRef<HTMLDivElement, BarListProps>((props, ref) => {
                     href={item.href}
                     target={item.target ?? "_blank"}
                     rel="noreferrer"
-                    className={tremorTwMerge(
+                    className={garmzTwMerge(
                       makeBarListClassName("barLink"),
                       // common
-                      "whitespace-nowrap hover:underline truncate text-tremor-default",
+                      "whitespace-nowrap hover:underline truncate text-garmz-default",
                       // light
-                      "text-tremor-content-emphasis",
+                      "text-garmz-content-emphasis",
                       // dark
-                      "dark:text-dark-tremor-content-emphasis",
+                      "dark:text-dark-garmz-content-emphasis",
                     )}
                   >
                     {item.name}
                   </a>
                 ) : (
                   <p
-                    className={tremorTwMerge(
+                    className={garmzTwMerge(
                       makeBarListClassName("barText"),
                       // common
-                      "whitespace-nowrap truncate text-tremor-default",
+                      "whitespace-nowrap truncate text-garmz-default",
                       // light
-                      "text-tremor-content-emphasis",
+                      "text-garmz-content-emphasis",
                       // dark
-                      "dark:text-dark-tremor-content-emphasis",
+                      "dark:text-dark-garmz-content-emphasis",
                     )}
                   >
                     {item.name}
@@ -148,7 +148,7 @@ const BarList = React.forwardRef<HTMLDivElement, BarListProps>((props, ref) => {
         {data.map((item, idx) => (
           <div
             key={item.key ?? item.name}
-            className={tremorTwMerge(
+            className={garmzTwMerge(
               makeBarListClassName("labelWrapper"),
               "flex justify-end items-center",
               rowHeight,
@@ -156,14 +156,14 @@ const BarList = React.forwardRef<HTMLDivElement, BarListProps>((props, ref) => {
             )}
           >
             <p
-              className={tremorTwMerge(
+              className={garmzTwMerge(
                 makeBarListClassName("labelText"),
                 // common
-                "whitespace-nowrap truncate text-tremor-default",
+                "whitespace-nowrap truncate text-garmz-default",
                 // light
-                "text-tremor-content-emphasis",
+                "text-garmz-content-emphasis",
                 // dark
-                "dark:text-dark-tremor-content-emphasis",
+                "dark:text-dark-garmz-content-emphasis",
               )}
             >
               {valueFormatter(item.value)}

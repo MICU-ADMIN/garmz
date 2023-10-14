@@ -1,7 +1,7 @@
 "use client";
-import React, { useContext } from "react";
-import { tremorTwMerge } from "lib";
 import { SelectedValueContext } from "contexts";
+import { garmzTwMerge } from "lib";
+import React, { useContext } from "react";
 
 import { isValueInArray, makeClassName, spacing } from "lib";
 
@@ -21,15 +21,15 @@ const MultiSelectItem = React.forwardRef<HTMLLIElement, MultiSelectItemProps>((p
 
   return (
     <Listbox.Option
-      className={tremorTwMerge(
+      className={garmzTwMerge(
         makeMultiSelectItemClassName("root"),
         // common
-        "flex justify-start items-center cursor-default text-tremor-default",
+        "flex justify-start items-center cursor-default text-garmz-default",
         // light
-        // "ui-active:bg-tremor-background-muted ui-active:text-tremor-content-strong ui-selected:text-tremor-content-strong ui-selected:bg-tremor-background-muted text-tremor-content-emphasis",
-        "ui-active:bg-tremor-background-muted ui-active:text-tremor-content-strong ui-selected:text-tremor-content-strong text-tremor-content-emphasis",
+        // "ui-active:bg-garmz-background-muted ui-active:text-garmz-content-strong ui-selected:text-garmz-content-strong ui-selected:bg-garmz-background-muted text-garmz-content-emphasis",
+        "ui-active:bg-garmz-background-muted ui-active:text-garmz-content-strong ui-selected:text-garmz-content-strong text-garmz-content-emphasis",
         // dark
-        "dark:ui-active:bg-dark-tremor-background-muted dark:ui-active:text-dark-tremor-content-strong dark:ui-selected:text-dark-tremor-content-strong dark:ui-selected:bg-dark-tremor-background-muted dark:text-dark-tremor-content-emphasis",
+        "dark:ui-active:bg-dark-garmz-background-muted dark:ui-active:text-dark-garmz-content-strong dark:ui-selected:text-dark-garmz-content-strong dark:ui-selected:bg-dark-garmz-background-muted dark:text-dark-garmz-content-emphasis",
         spacing.md.paddingX,
         spacing.md.paddingY,
         className,
@@ -41,14 +41,14 @@ const MultiSelectItem = React.forwardRef<HTMLLIElement, MultiSelectItemProps>((p
     >
       <input
         type="checkbox"
-        className={tremorTwMerge(
+        className={garmzTwMerge(
           makeMultiSelectItemClassName("checkbox"),
           // common
           "flex-none focus:ring-none focus:outline-none cursor-pointer",
           // light
-          "accent-tremor-brand",
+          "accent-garmz-brand",
           // dark
-          "dark:accent-dark-tremor-brand",
+          "dark:accent-dark-garmz-brand",
           spacing.md.marginRight,
         )}
         checked={isSelected}

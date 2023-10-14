@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Color, tremorTwMerge } from "../../../lib";
 import { getColorClassNames, makeClassName, sizing, spacing, themeColorRange } from "lib";
 import { colorPalette } from "lib/theme";
+import { Color, garmzTwMerge } from "../../../lib";
 
 const makeLegendClassName = makeClassName("Legend");
 
@@ -17,17 +17,17 @@ const LegendItem = ({ name, color, onClick, activeLegend }: LegendItemProps) => 
   const hasOnValueChange = !!onClick;
   return (
     <li
-      className={tremorTwMerge(
+      className={garmzTwMerge(
         makeLegendClassName("legendItem"),
         // common
-        "group inline-flex items-center truncate px-2 py-0.5 rounded-tremor-small transition ",
+        "group inline-flex items-center truncate px-2 py-0.5 rounded-garmz-small transition ",
         hasOnValueChange ? "cursor-pointer" : "cursor-default",
         // light
-        "text-tremor-content",
-        hasOnValueChange ? "hover:bg-tremor-background-subtle" : "",
+        "text-garmz-content",
+        hasOnValueChange ? "hover:bg-garmz-background-subtle" : "",
         // dark
-        "dark:text-dark-tremor-content",
-        hasOnValueChange ? "dark:hover:bg-dark-tremor-background-subtle" : "",
+        "dark:text-dark-garmz-content",
+        hasOnValueChange ? "dark:hover:bg-dark-garmz-background-subtle" : "",
       )}
       onClick={(e) => {
         e.stopPropagation();
@@ -35,7 +35,7 @@ const LegendItem = ({ name, color, onClick, activeLegend }: LegendItemProps) => 
       }}
     >
       <svg
-        className={tremorTwMerge(
+        className={garmzTwMerge(
           "flex-none",
           getColorClassNames(color, colorPalette.text).textColor,
           sizing.xs.height,
@@ -49,16 +49,16 @@ const LegendItem = ({ name, color, onClick, activeLegend }: LegendItemProps) => 
         <circle cx={4} cy={4} r={4} />
       </svg>
       <p
-        className={tremorTwMerge(
+        className={garmzTwMerge(
           // common
-          "whitespace-nowrap truncate text-tremor-default",
+          "whitespace-nowrap truncate text-garmz-default",
           // light
-          "text-tremor-content",
-          hasOnValueChange ? "group-hover:text-tremor-content-emphasis" : "",
+          "text-garmz-content",
+          hasOnValueChange ? "group-hover:text-garmz-content-emphasis" : "",
           // dark
-          "dark:text-dark-tremor-content",
+          "dark:text-dark-garmz-content",
           activeLegend && activeLegend !== name ? "opacity-40" : "opacity-100",
-          hasOnValueChange ? "dark:group-hover:text-dark-tremor-content-emphasis" : "",
+          hasOnValueChange ? "dark:group-hover:text-dark-garmz-content-emphasis" : "",
         )}
       >
         {name}
@@ -86,7 +86,7 @@ const Legend = React.forwardRef<HTMLOListElement, LegendProps>((props, ref) => {
   return (
     <ol
       ref={ref}
-      className={tremorTwMerge(
+      className={garmzTwMerge(
         makeLegendClassName("root"),
         "flex flex-wrap overflow-hidden truncate",
         className,

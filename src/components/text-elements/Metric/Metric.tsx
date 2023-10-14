@@ -1,9 +1,9 @@
+import { garmzTwMerge } from "lib";
 import React from "react";
-import { tremorTwMerge } from "lib";
 
 import { getColorClassNames } from "lib";
-import { Color } from "../../../lib";
 import { colorPalette } from "lib/theme";
+import { Color } from "../../../lib";
 
 export interface MetricProps extends React.HTMLAttributes<HTMLParagraphElement> {
   color?: Color;
@@ -14,11 +14,11 @@ const Metric = React.forwardRef<HTMLParagraphElement, MetricProps>((props, ref) 
   return (
     <p
       ref={ref}
-      className={tremorTwMerge(
-        "font-semibold text-tremor-metric",
+      className={garmzTwMerge(
+        "font-semibold text-garmz-metric",
         color
           ? getColorClassNames(color, colorPalette.darkText).textColor
-          : "text-tremor-content-emphasis dark:text-dark-tremor-content-emphasis",
+          : "text-garmz-content-emphasis dark:text-dark-garmz-content-emphasis",
         className,
       )}
       {...other}

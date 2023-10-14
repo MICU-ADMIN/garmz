@@ -1,6 +1,6 @@
 import { Icon as IconComponent } from "components/icon-elements";
+import { garmzTwMerge } from "lib";
 import React from "react";
-import { tremorTwMerge } from "lib";
 
 interface NavButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   onClick: () => void;
@@ -12,8 +12,8 @@ export const NavButton = ({ onClick, icon, ...other }: NavButtonProps) => {
   return (
     <button
       type="button"
-      className={tremorTwMerge(
-        "flex items-center justify-center p-1 h-7 w-7 outline-none focus:ring-2 transition duration-100 border border-tremor-border dark:border-dark-tremor-border hover:bg-tremor-background-muted dark:hover:bg-dark-tremor-background-muted rounded-tremor-small focus:border-tremor-brand-subtle select-none dark:focus:border-dark-tremor-brand-subtle focus:ring-tremor-brand-muted dark:focus:ring-dark-tremor-brand-muted text-tremor-content-subtle dark:text-dark-tremor-content-subtle hover:text-tremor-content dark:hover:text-dark-tremor-content",
+      className={garmzTwMerge(
+        "flex items-center justify-center p-1 h-7 w-7 outline-none focus:ring-2 transition duration-100 border border-garmz-border dark:border-dark-garmz-border hover:bg-garmz-background-muted dark:hover:bg-dark-garmz-background-muted rounded-garmz-small focus:border-garmz-brand-subtle select-none dark:focus:border-dark-garmz-brand-subtle focus:ring-garmz-brand-muted dark:focus:ring-dark-garmz-brand-muted text-garmz-content-subtle dark:text-dark-garmz-content-subtle hover:text-garmz-content dark:hover:text-dark-garmz-content",
       )}
       {...other}
     >

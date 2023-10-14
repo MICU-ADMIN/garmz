@@ -1,10 +1,10 @@
 "use client";
+import { garmzTwMerge } from "lib";
 import React from "react";
-import { tremorTwMerge } from "lib";
 
+import Tooltip, { useTooltip } from "components/util-elements/Tooltip/Tooltip";
 import { DeltaTypes, makeClassName, mapInputsToDeltaType, sizing } from "lib";
 import { colors } from "./styles";
-import Tooltip, { useTooltip } from "components/util-elements/Tooltip/Tooltip";
 
 const makeDeltaBarClassName = makeClassName("DeltaBar");
 
@@ -21,7 +21,7 @@ const DeltaBar = React.forwardRef<HTMLDivElement, DeltaBarProps>((props, ref) =>
   const {
     value,
     isIncreasePositive = true,
-    showAnimation = true,
+    showAnimation = false,
     className,
     tooltip,
     ...other
@@ -35,14 +35,14 @@ const DeltaBar = React.forwardRef<HTMLDivElement, DeltaBarProps>((props, ref) =>
       <Tooltip text={tooltip} {...tooltipProps} />
       <div
         ref={ref}
-        className={tremorTwMerge(
+        className={garmzTwMerge(
           makeDeltaBarClassName("root"),
           // common
-          "relative flex items-center w-full rounded-tremor-full",
+          "relative flex items-center w-full rounded-garmz-full",
           // light
-          "bg-tremor-background-subtle",
+          "bg-garmz-background-subtle",
           // dark
-          "dark:bg-dark-tremor-background-subtle",
+          "dark:bg-dark-garmz-background-subtle",
           sizing.xs.height,
           className,
         )}
@@ -56,10 +56,10 @@ const DeltaBar = React.forwardRef<HTMLDivElement, DeltaBarProps>((props, ref) =>
           {value < 0 ? (
             <div
               ref={tooltipProps.refs.setReference}
-              className={tremorTwMerge(
+              className={garmzTwMerge(
                 makeDeltaBarClassName("negativeDeltaBar"),
                 // common
-                "rounded-l-tremor-full",
+                "rounded-l-garmz-full",
                 colors[deltaType].bgColor,
               )}
               style={{
@@ -71,20 +71,20 @@ const DeltaBar = React.forwardRef<HTMLDivElement, DeltaBarProps>((props, ref) =>
           ) : null}
         </div>
         <div
-          className={tremorTwMerge(
+          className={garmzTwMerge(
             makeDeltaBarClassName("separator"),
             // common
-            "ring-2 z-10 rounded-tremor-full",
+            "ring-2 z-10 rounded-garmz-full",
             // light
-            "ring-tremor-brand-inverted bg-tremor-background-emphasis",
+            "ring-garmz-brand-inverted bg-garmz-background-emphasis",
             // dark
-            "dark:ring-dark-tremor-brand-inverted dark:bg-dark-tremor-background-emphasis",
+            "dark:ring-dark-garmz-brand-inverted dark:bg-dark-garmz-background-emphasis",
             sizing.md.height,
             sizing.twoXs.width,
           )}
         />
         <div
-          className={tremorTwMerge(
+          className={garmzTwMerge(
             makeDeltaBarClassName("positiveDeltaBarWrapper"),
             "flex justify-start h-full w-1/2",
           )}
@@ -92,10 +92,10 @@ const DeltaBar = React.forwardRef<HTMLDivElement, DeltaBarProps>((props, ref) =>
           {value >= 0 ? (
             <div
               ref={tooltipProps.refs.setReference}
-              className={tremorTwMerge(
+              className={garmzTwMerge(
                 makeDeltaBarClassName("positiveDeltaBar"),
                 // common
-                "rounded-r-tremor-full",
+                "rounded-r-garmz-full",
                 colors[deltaType].bgColor,
               )}
               style={{

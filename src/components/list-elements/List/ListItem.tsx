@@ -1,5 +1,5 @@
+import { garmzTwMerge } from "lib";
 import React from "react";
-import { tremorTwMerge } from "lib";
 
 import { makeClassName, spacing } from "lib";
 
@@ -12,10 +12,10 @@ const ListItem = React.forwardRef<HTMLLIElement, React.HTMLAttributes<HTMLLIElem
       <>
         <li
           ref={ref}
-          className={tremorTwMerge(
+          className={garmzTwMerge(
             makeListItemClassName("root"),
             // common
-            "w-full flex justify-between items-center truncate tabular-nums text-tremor-default",
+            "w-full flex justify-between items-center truncate tabular-nums text-garmz-default",
             spacing.sm.paddingY,
             className,
           )}

@@ -1,11 +1,11 @@
 "use client";
+import { garmzTwMerge } from "lib";
 import React, { useContext } from "react";
-import { tremorTwMerge } from "lib";
 
-import { ArrowUpHeadIcon } from "assets";
-import { makeClassName, sizing, spacing } from "lib";
 import { Disclosure } from "@headlessui/react";
+import { ArrowUpHeadIcon } from "assets";
 import { OpenContext } from "components/layout-elements/Accordion/Accordion";
+import { makeClassName, sizing, spacing } from "lib";
 
 const makeAccordionHeaderClassName = makeClassName("AccordionHeader");
 
@@ -20,14 +20,14 @@ const AccordionHeader = React.forwardRef<
   return (
     <Disclosure.Button
       ref={ref}
-      className={tremorTwMerge(
+      className={garmzTwMerge(
         makeAccordionHeaderClassName("root"),
         // common
         "w-full flex items-center justify-between",
         // light
-        "text-tremor-content-emphasis",
+        "text-garmz-content-emphasis",
         // dark
-        "dark:text-dark-tremor-content-emphasis",
+        "dark:text-dark-garmz-content-emphasis",
         spacing.twoXl.paddingX,
         spacing.lg.paddingY,
         className,
@@ -35,7 +35,7 @@ const AccordionHeader = React.forwardRef<
       {...other}
     >
       <div
-        className={tremorTwMerge(
+        className={garmzTwMerge(
           makeAccordionHeaderClassName("children"),
           "flex flex-1 text-inherit",
           spacing.twoXl.marginRight,
@@ -45,12 +45,12 @@ const AccordionHeader = React.forwardRef<
       </div>
       <div>
         <ArrowUpHeadIcon
-          className={tremorTwMerge(
+          className={garmzTwMerge(
             makeAccordionHeaderClassName("arrowIcon"),
             // light
-            "text-tremor-content-subtle",
+            "text-garmz-content-subtle",
             // dark
-            "dark:text-dark-tremor-content-subtle",
+            "dark:text-dark-garmz-content-subtle",
             spacing.twoXs.negativeMarginRight,
             sizing.md.height,
             sizing.md.width,

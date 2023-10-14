@@ -1,8 +1,8 @@
+import { garmzTwMerge } from "lib";
 import React from "react";
-import { tremorTwMerge } from "lib";
 
-import { GridClassesMapping, colSpan, colSpanLg, colSpanMd, colSpanSm } from "./styles";
 import { makeClassName } from "lib";
+import { colSpan, colSpanLg, colSpanMd, colSpanSm, GridClassesMapping } from "./styles";
 
 const makeColClassName = makeClassName("Col");
 
@@ -38,13 +38,13 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     const spanMd = getColSpan(numColSpanMd, colSpanMd);
     const spanLg = getColSpan(numColSpanLg, colSpanLg);
 
-    return tremorTwMerge(spanBase, spanSm, spanMd, spanLg);
+    return garmzTwMerge(spanBase, spanSm, spanMd, spanLg);
   };
 
   return (
     <div
       ref={ref}
-      className={tremorTwMerge(makeColClassName("root"), getColSpanClassNames(), className)}
+      className={garmzTwMerge(makeColClassName("root"), getColSpanClassNames(), className)}
       {...other}
     >
       {children}

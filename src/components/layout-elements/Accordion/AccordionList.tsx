@@ -1,9 +1,9 @@
 "use client";
+import { garmzTwMerge } from "lib";
 import React from "react";
-import { tremorTwMerge } from "lib";
 
-import { border, makeClassName } from "lib";
 import { RootStylesContext } from "contexts";
+import { border, makeClassName } from "lib";
 
 const makeAccordionListClassName = makeClassName("AccordionList");
 
@@ -18,14 +18,14 @@ const AccordionList = React.forwardRef<HTMLDivElement, AccordionListProps>((prop
   return (
     <div
       ref={ref}
-      className={tremorTwMerge(
+      className={garmzTwMerge(
         makeAccordionListClassName("root"),
         // common
-        "rounded-tremor-default",
+        "rounded-garmz-default",
         // light
-        "shadow-tremor-card",
+        "shadow-garmz-card",
         // dark
-        "dark:shadow-dark-tremor-card",
+        "dark:shadow-dark-garmz-card",
         className,
       )}
       {...other}
@@ -34,8 +34,8 @@ const AccordionList = React.forwardRef<HTMLDivElement, AccordionListProps>((prop
         if (idx === 0) {
           return (
             <RootStylesContext.Provider
-              value={tremorTwMerge(
-                "rounded-t-tremor-default",
+              value={garmzTwMerge(
+                "rounded-t-garmz-default",
                 border.sm.left,
                 border.sm.top,
                 border.sm.right,
@@ -49,8 +49,8 @@ const AccordionList = React.forwardRef<HTMLDivElement, AccordionListProps>((prop
         if (idx === numChildren - 1) {
           return (
             <RootStylesContext.Provider
-              value={tremorTwMerge(
-                "rounded-b-tremor-default",
+              value={garmzTwMerge(
+                "rounded-b-garmz-default",
                 border.sm.left,
                 border.sm.right,
                 border.sm.bottom,
@@ -62,7 +62,7 @@ const AccordionList = React.forwardRef<HTMLDivElement, AccordionListProps>((prop
         }
         return (
           <RootStylesContext.Provider
-            value={tremorTwMerge(border.sm.left, border.sm.right, border.sm.bottom)}
+            value={garmzTwMerge(border.sm.left, border.sm.right, border.sm.bottom)}
           >
             {React.cloneElement(child)}
           </RootStylesContext.Provider>

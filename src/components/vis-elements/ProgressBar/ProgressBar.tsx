@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
 
-import { getColorClassNames, makeClassName, sizing, spacing, tremorTwMerge } from "lib";
-import { Color } from "../../../lib/inputTypes";
-import { colorPalette } from "lib/theme";
 import Tooltip, { useTooltip } from "components/util-elements/Tooltip/Tooltip";
+import { getColorClassNames, makeClassName, sizing, spacing, garmzTwMerge } from "lib";
+import { colorPalette } from "lib/theme";
+import { Color } from "../../../lib/inputTypes";
 
 const makeProgressBarClassName = makeClassName("ProgressBar");
 
@@ -17,7 +17,7 @@ export interface ProgressBarProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>((props, ref) => {
-  const { value, label, color, tooltip, showAnimation = true, className, ...other } = props;
+  const { value, label, color, tooltip, showAnimation = false, className, ...other } = props;
   const { tooltipProps, getReferenceProps } = useTooltip();
 
   return (
@@ -25,7 +25,7 @@ const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>((props, r
       <Tooltip text={tooltip} {...tooltipProps} />
       <div
         ref={ref}
-        className={tremorTwMerge(
+        className={garmzTwMerge(
           makeProgressBarClassName("root"),
           "flex items-center w-full",
           className,
@@ -34,24 +34,24 @@ const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>((props, r
       >
         <div
           ref={tooltipProps.refs.setReference}
-          className={tremorTwMerge(
+          className={garmzTwMerge(
             makeProgressBarClassName("progressBarWrapper"),
-            "relative flex items-center w-full rounded-tremor-full bg-opacity-20",
+            "relative flex items-center w-full rounded-garmz-full bg-opacity-20",
             color
               ? getColorClassNames(color, colorPalette.background).bgColor
-              : "bg-tremor-brand-muted/50 dark:bg-dark-tremor-brand-muted",
+              : "bg-garmz-brand-muted/50 dark:bg-dark-garmz-brand-muted",
             sizing.xs.height,
           )}
           {...getReferenceProps}
         >
           <div
-            className={tremorTwMerge(
+            className={garmzTwMerge(
               makeProgressBarClassName("progressBar"),
               // common
-              "flex-col h-full rounded-tremor-full",
+              "flex-col h-full rounded-garmz-full",
               color
                 ? getColorClassNames(color, colorPalette.background).bgColor
-                : "bg-tremor-brand dark:bg-dark-tremor-brand",
+                : "bg-garmz-brand dark:bg-dark-garmz-brand",
             )}
             style={{
               width: `${value}%`,
@@ -61,22 +61,22 @@ const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>((props, r
         </div>
         {label ? (
           <div
-            className={tremorTwMerge(
+            className={garmzTwMerge(
               makeProgressBarClassName("labelWrapper"),
               // common
               "w-16 truncate text-right",
               // light
-              "text-tremor-content-emphasis",
+              "text-garmz-content-emphasis",
               // dark
-              "dark:text-dark-tremor-content-emphasis",
+              "dark:text-dark-garmz-content-emphasis",
               spacing.sm.marginLeft,
             )}
           >
             <p
-              className={tremorTwMerge(
+              className={garmzTwMerge(
                 makeProgressBarClassName("label"),
                 // common
-                "shrink-0 whitespace-nowrap truncate text-tremor-default",
+                "shrink-0 whitespace-nowrap truncate text-garmz-default",
               )}
             >
               {label}

@@ -1,11 +1,11 @@
 "use client";
+import { garmzTwMerge } from "lib";
 import React from "react";
-import { tremorTwMerge } from "lib";
 
-import { Sizes, makeClassName, mergeRefs } from "lib";
+import Tooltip, { useTooltip } from "components/util-elements/Tooltip/Tooltip";
+import { makeClassName, mergeRefs, Sizes } from "lib";
 import { Color, IconVariant, Size } from "../../../lib";
 import { getIconColors, iconSizes, shape, wrapperProportions } from "./styles";
-import Tooltip, { useTooltip } from "components/util-elements/Tooltip/Tooltip";
 
 const makeIconClassName = makeClassName("Icon");
 
@@ -43,7 +43,7 @@ const Icon = React.forwardRef<HTMLSpanElement, IconProps>((props, ref) => {
   return (
     <span
       ref={mergeRefs([ref, tooltipProps.refs.setReference])}
-      className={tremorTwMerge(
+      className={garmzTwMerge(
         makeIconClassName("root"),
         "inline-flex flex-shrink-0 items-center",
         iconColorStyles.bgColor,
@@ -63,7 +63,7 @@ const Icon = React.forwardRef<HTMLSpanElement, IconProps>((props, ref) => {
     >
       <Tooltip text={tooltip} {...tooltipProps} />
       <Icon
-        className={tremorTwMerge(
+        className={garmzTwMerge(
           makeIconClassName("icon"),
           "shrink-0",
           iconSizes[size].height,

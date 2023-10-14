@@ -1,41 +1,41 @@
 "use client";
 import React, { useState } from "react";
 import {
-  ScatterChart as ReChartsScatterChart,
-  Scatter,
   CartesianGrid,
+  Dot,
   Legend,
   ResponsiveContainer,
+  Scatter,
+  ScatterChart as ReChartsScatterChart,
   Tooltip,
   XAxis,
   YAxis,
   ZAxis,
-  Dot,
 } from "recharts";
 import { AxisDomain } from "recharts/types/util/types";
 
+import type { EventProps } from "components/chart-elements/common";
+import ChartLegend from "components/chart-elements/common/ChartLegend";
+import ScatterChartTooltip from "components/chart-elements/ScatterChart/ScatterChartTooltip";
+import BaseAnimationTimingProps from "../common/BaseAnimationTimingProps";
+import NoData from "../common/NoData";
 import {
   constructCategories,
   constructCategoryColors,
   deepEqual,
   getYAxisDomain,
 } from "../common/utils";
-import NoData from "../common/NoData";
-import BaseAnimationTimingProps from "../common/BaseAnimationTimingProps";
-import type { EventProps } from "components/chart-elements/common";
-import ChartLegend from "components/chart-elements/common/ChartLegend";
-import ScatterChartTooltip from "components/chart-elements/ScatterChart/ScatterChartTooltip";
 
+import { CustomTooltipType } from "components/chart-elements/common/CustomTooltipProps";
 import {
   BaseColors,
   colorPalette,
   defaultValueFormatter,
   getColorClassNames,
   themeColorRange,
-  tremorTwMerge,
+  garmzTwMerge,
 } from "lib";
 import { Color, ValueFormatter } from "../../../lib/inputTypes";
-import { CustomTooltipType } from "components/chart-elements/common/CustomTooltipProps";
 
 export type ScatterChartValueFormatter = {
   x?: ValueFormatter;
@@ -177,7 +177,7 @@ const ScatterChart = React.forwardRef<HTMLDivElement, ScatterChartProps>((props,
   const yAxisDomain = getYAxisDomain(autoMinYValue, minYValue, maxYValue);
 
   return (
-    <div ref={ref} className={tremorTwMerge("w-full h-80", className)} {...other}>
+    <div ref={ref} className={garmzTwMerge("w-full h-80", className)} {...other}>
       <ResponsiveContainer className="h-full w-full">
         {data?.length ? (
           <ReChartsScatterChart
@@ -193,13 +193,13 @@ const ScatterChart = React.forwardRef<HTMLDivElement, ScatterChartProps>((props,
           >
             {showGridLines ? (
               <CartesianGrid
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   // common
                   "stroke-1",
                   // light
-                  "stroke-tremor-border",
+                  "stroke-garmz-border",
                   // dark
-                  "dark:stroke-dark-tremor-border",
+                  "dark:stroke-dark-garmz-border",
                 )}
                 horizontal={true}
                 vertical={true}
@@ -216,13 +216,13 @@ const ScatterChart = React.forwardRef<HTMLDivElement, ScatterChartProps>((props,
                 name={x}
                 fill=""
                 stroke=""
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   // common
-                  "text-tremor-label",
+                  "text-garmz-label",
                   // light
-                  "fill-tremor-content",
+                  "fill-garmz-content",
                   // dark
-                  "dark:fill-dark-tremor-content",
+                  "dark:fill-dark-garmz-content",
                 )}
                 tickLine={false}
                 tickFormatter={valueFormatter.x}
@@ -247,13 +247,13 @@ const ScatterChart = React.forwardRef<HTMLDivElement, ScatterChartProps>((props,
                 tickFormatter={valueFormatter.y}
                 fill=""
                 stroke=""
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   // common
-                  "text-tremor-label",
+                  "text-garmz-label",
                   // light
-                  "fill-tremor-content",
+                  "fill-garmz-content",
                   // dark
-                  "dark:fill-dark-tremor-content",
+                  "dark:fill-dark-garmz-content",
                 )}
                 allowDecimals={allowDecimals}
                 allowDataOverflow={true}
@@ -298,7 +298,7 @@ const ScatterChart = React.forwardRef<HTMLDivElement, ScatterChartProps>((props,
             {categories.map((cat) => {
               return (
                 <Scatter
-                  className={tremorTwMerge(
+                  className={garmzTwMerge(
                     getColorClassNames(
                       categoryColors.get(cat) ?? BaseColors.Gray,
                       colorPalette.text,

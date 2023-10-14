@@ -1,12 +1,11 @@
-import React, { useState } from "react";
 import {
-  ExtendedRefs,
-  ReferenceType,
-  Strategy,
   autoUpdate,
+  ExtendedRefs,
   flip,
   offset,
+  ReferenceType,
   shift,
+  Strategy,
   useDismiss,
   useFloating,
   useFocus,
@@ -14,8 +13,8 @@ import {
   useInteractions,
   useRole,
 } from "@floating-ui/react";
-import { tremorTwMerge } from "lib";
-import { spacing } from "lib";
+import { spacing, garmzTwMerge } from "lib";
+import React, { useState } from "react";
 
 export const useTooltip = (delay?: number) => {
   const [open, setOpen] = useState(false);
@@ -82,13 +81,13 @@ export interface TooltipProps {
 const Tooltip = ({ text, open, x, y, refs, strategy, getFloatingProps }: TooltipProps) => {
   return open && text ? (
     <div
-      className={tremorTwMerge(
+      className={garmzTwMerge(
         // common
-        "max-w-xs text-sm z-20 rounded-tremor-default",
+        "max-w-xs text-sm z-20 rounded-garmz-default",
         // light
-        "text-white bg-tremor-background-emphasis",
+        "text-white bg-garmz-background-emphasis",
         // dark
-        "text-white dark:bg-dark-tremor-background-subtle",
+        "text-white dark:bg-dark-garmz-background-subtle",
         spacing.md.paddingX,
         spacing.twoXs.paddingY,
       )}

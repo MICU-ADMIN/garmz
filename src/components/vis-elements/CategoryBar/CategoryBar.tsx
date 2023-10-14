@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import { tremorTwMerge } from "../../../lib";
+import { garmzTwMerge } from "../../../lib";
 
-import { Color } from "../../../lib";
+import Tooltip, { useTooltip } from "components/util-elements/Tooltip/Tooltip";
 import {
   getColorClassNames,
   makeClassName,
@@ -12,7 +12,7 @@ import {
   themeColorRange,
 } from "lib";
 import { colorPalette } from "lib/theme";
-import Tooltip, { useTooltip } from "components/util-elements/Tooltip/Tooltip";
+import { Color } from "../../../lib";
 
 const makeCategoryBarClassName = makeClassName("CategoryBar");
 
@@ -41,14 +41,14 @@ const BarLabels = ({ values }: { values: number[] }) => {
   let sumConsecutveHiddenLabels = 0;
   return (
     <div
-      className={tremorTwMerge(
+      className={garmzTwMerge(
         makeCategoryBarClassName("labels"),
         // common
-        "relative flex w-full text-tremor-default",
+        "relative flex w-full text-garmz-default",
         // light
-        "text-tremor-content",
+        "text-garmz-content",
         // dark
-        "dark:text-dark-tremor-content",
+        "dark:text-dark-garmz-content",
         spacing.sm.marginBottom,
         sizing.lg.height,
       )}
@@ -68,17 +68,17 @@ const BarLabels = ({ values }: { values: number[] }) => {
             style={{ width: `${widthPercentage}%` }}
           >
             <span
-              className={tremorTwMerge(showLabel ? "block" : "hidden", "left-1/2 translate-x-1/2")}
+              className={garmzTwMerge(showLabel ? "block" : "hidden", "left-1/2 translate-x-1/2")}
             >
               {prefixSum}
             </span>
           </div>
         );
       })}
-      <div className={tremorTwMerge("absolute bottom-0 flex items-center", spacing.none.left)}>
+      <div className={garmzTwMerge("absolute bottom-0 flex items-center", spacing.none.left)}>
         0
       </div>
-      <div className={tremorTwMerge("absolute bottom-0 flex items-center", spacing.none.right)}>
+      <div className={garmzTwMerge("absolute bottom-0 flex items-center", spacing.none.right)}>
         {sumValues}
       </div>
     </div>
@@ -101,7 +101,7 @@ const CategoryBar = React.forwardRef<HTMLDivElement, CategoryBarProps>((props, r
     markerValue,
     showLabels = true,
     tooltip,
-    showAnimation = true,
+    showAnimation = false,
     className,
     ...other
   } = props;
@@ -115,21 +115,21 @@ const CategoryBar = React.forwardRef<HTMLDivElement, CategoryBarProps>((props, r
       <Tooltip text={tooltip} {...tooltipProps} />
       <div
         ref={ref}
-        className={tremorTwMerge(makeCategoryBarClassName("root"), className)}
+        className={garmzTwMerge(makeCategoryBarClassName("root"), className)}
         {...other}
       >
         {showLabels ? <BarLabels values={values} /> : null}
         <div
-          className={tremorTwMerge(
+          className={garmzTwMerge(
             makeCategoryBarClassName("barWrapper"),
             "relative w-full flex items-center",
             sizing.xs.height,
           )}
         >
           <div
-            className={tremorTwMerge(
+            className={garmzTwMerge(
               // common
-              "flex-1 flex items-center h-full overflow-hidden rounded-tremor-full",
+              "flex-1 flex items-center h-full overflow-hidden rounded-garmz-full",
             )}
           >
             {values.map((value, idx) => {
@@ -137,7 +137,7 @@ const CategoryBar = React.forwardRef<HTMLDivElement, CategoryBarProps>((props, r
               return (
                 <div
                   key={`item-${idx}`}
-                  className={tremorTwMerge(
+                  className={garmzTwMerge(
                     makeCategoryBarClassName("categoryBar"),
                     "h-full",
                     getColorClassNames(baseColor, colorPalette.background).bgColor,
@@ -150,7 +150,7 @@ const CategoryBar = React.forwardRef<HTMLDivElement, CategoryBarProps>((props, r
           {markerValue !== undefined ? (
             <div
               ref={tooltipProps.refs.setReference}
-              className={tremorTwMerge(
+              className={garmzTwMerge(
                 makeCategoryBarClassName("markerWrapper"),
                 "absolute right-1/2 -translate-x-1/2",
                 sizing.lg.width,
@@ -162,14 +162,14 @@ const CategoryBar = React.forwardRef<HTMLDivElement, CategoryBarProps>((props, r
               {...getReferenceProps}
             >
               <div
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   makeCategoryBarClassName("marker"),
                   // common
-                  "ring-2 mx-auto rounded-tremor-full",
+                  "ring-2 mx-auto rounded-garmz-full",
                   // light
-                  "ring-tremor-brand-inverted",
+                  "ring-garmz-brand-inverted",
                   // dark
-                  "dark:ring-dark-tremor-brand-inverted",
+                  "dark:ring-dark-garmz-brand-inverted",
                   markerBgColor,
                   sizing.md.height,
                   sizing.twoXs.width,

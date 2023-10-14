@@ -1,7 +1,7 @@
+import { garmzTwMerge } from "lib";
 import React from "react";
 import { Flex } from "../../../components/layout-elements/Flex";
 import { Text } from "../../../components/text-elements/Text";
-import { tremorTwMerge } from "lib";
 
 interface NoDataProps {
   noDataText?: string;
@@ -11,21 +11,21 @@ const NoData = ({ noDataText = "No data" }: NoDataProps) => {
     <Flex
       alignItems="center"
       justifyContent="center"
-      className={tremorTwMerge(
+      className={garmzTwMerge(
         // common
-        "w-full h-full border border-dashed rounded-tremor-default",
+        "w-full h-full border border-dashed rounded-garmz-default",
         // light
-        "border-tremor-border",
+        "border-garmz-border",
         // dark
-        "dark:border-dark-tremor-border",
+        "dark:border-dark-garmz-border",
       )}
     >
       <Text
-        className={tremorTwMerge(
+        className={garmzTwMerge(
           // light
-          "text-tremor-content",
+          "text-garmz-content",
           // dark
-          "dark:text-dark-tremor-content",
+          "dark:text-dark-garmz-content",
         )}
       >
         {noDataText}

@@ -1,13 +1,13 @@
 "use client";
 
 import { ArrowDownHeadIcon, XCircleIcon } from "assets";
-import React, { useMemo } from "react";
 import { border, makeClassName, sizing, spacing } from "lib";
+import React, { useMemo } from "react";
 import { constructValueToNameMapping, getSelectButtonColors, hasValue } from "../selectUtils";
 
 import { Listbox } from "@headlessui/react";
-import { tremorTwMerge } from "lib";
 import { useInternalState } from "hooks";
+import { garmzTwMerge } from "lib";
 
 const makeSelectClassName = makeClassName("Select");
 
@@ -58,9 +58,9 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
         }) as any
       }
       disabled={disabled}
-      className={tremorTwMerge(
+      className={garmzTwMerge(
         // common
-        "w-full min-w-[10rem] relative text-tremor-default",
+        "w-full min-w-[10rem] relative text-garmz-default",
         className,
       )}
       {...other}
@@ -68,13 +68,13 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
       {({ value }) => (
         <>
           <Listbox.Button
-            className={tremorTwMerge(
+            className={garmzTwMerge(
               // common
-              "w-full outline-none text-left whitespace-nowrap truncate rounded-tremor-default focus:ring-2 transition duration-100",
+              "w-full outline-none text-left whitespace-nowrap truncate rounded-garmz-default focus:ring-2 transition duration-100",
               // light
-              "border-tremor-border shadow-tremor-input focus:border-tremor-brand-subtle focus:ring-tremor-brand-muted",
+              "border-garmz-border shadow-garmz-input focus:border-garmz-brand-subtle focus:ring-garmz-brand-muted",
               // dark
-              "dark:border-dark-tremor-border dark:shadow-dark-tremor-input dark:focus:border-dark-tremor-brand-subtle dark:focus:ring-dark-tremor-brand-muted",
+              "dark:border-dark-garmz-border dark:shadow-dark-garmz-input dark:focus:border-dark-garmz-brand-subtle dark:focus:ring-dark-garmz-brand-muted",
               Icon ? "p-10 -ml-0.5" : spacing.lg.paddingLeft,
               spacing.fourXl.paddingRight,
               spacing.sm.paddingY,
@@ -84,20 +84,20 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
           >
             {Icon && (
               <span
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   "absolute inset-y-0 left-0 flex items-center ml-px",
                   spacing.md.paddingLeft,
                 )}
               >
                 <Icon
-                  className={tremorTwMerge(
+                  className={garmzTwMerge(
                     makeSelectClassName("Icon"),
                     // common
                     "flex-none",
                     // light
-                    "text-tremor-content-subtle",
+                    "text-garmz-content-subtle",
                     // dark
-                    "dark:text-dark-tremor-content-subtle",
+                    "dark:text-dark-garmz-content-subtle",
                     sizing.lg.height,
                     sizing.lg.width,
                   )}
@@ -108,20 +108,20 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
               {value ? valueToNameMapping.get(value) ?? placeholder : placeholder}
             </span>
             <span
-              className={tremorTwMerge(
+              className={garmzTwMerge(
                 "absolute inset-y-0 right-0 flex items-center",
                 spacing.lg.marginRight,
               )}
             >
               <ArrowDownHeadIcon
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   makeSelectClassName("arrowDownIcon"),
                   // common
                   "flex-none",
                   // light
-                  "text-tremor-content-subtle",
+                  "text-garmz-content-subtle",
                   // dark
-                  "dark:text-dark-tremor-content-subtle",
+                  "dark:text-dark-garmz-content-subtle",
                   sizing.md.height,
                   sizing.md.width,
                 )}
@@ -131,7 +131,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
           {enableClear && selectedValue ? (
             <button
               type="button"
-              className={tremorTwMerge(
+              className={garmzTwMerge(
                 "absolute inset-y-0 right-0 flex items-center",
                 spacing.fourXl.marginRight,
               )}
@@ -141,14 +141,14 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
               }}
             >
               <XCircleIcon
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   makeSelectClassName("clearIcon"),
                   // common
                   "flex-none",
                   // light
-                  "text-tremor-content-subtle",
+                  "text-garmz-content-subtle",
                   // dark
-                  "dark:text-dark-tremor-content-subtle",
+                  "dark:text-dark-garmz-content-subtle",
                   sizing.md.height,
                   sizing.md.width,
                 )}
@@ -156,13 +156,13 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>((props, ref) => {
             </button>
           ) : null}
           <Listbox.Options
-            className={tremorTwMerge(
+            className={garmzTwMerge(
               // common
-              "absolute z-10 divide-y overflow-y-auto max-h-[228px] w-full left-0 outline-none rounded-tremor-default",
+              "absolute z-10 divide-y overflow-y-auto max-h-[228px] w-full left-0 outline-none rounded-garmz-default",
               // light
-              "bg-tremor-background border-tremor-border divide-tremor-border shadow-tremor-dropdown",
+              "bg-garmz-background border-garmz-border divide-garmz-border shadow-garmz-dropdown",
               // dark
-              "dark:bg-dark-tremor-background dark:border-dark-tremor-border dark:divide-dark-tremor-border dark:shadow-dark-tremor-dropdown",
+              "dark:bg-dark-garmz-background dark:border-dark-garmz-border dark:divide-dark-garmz-border dark:shadow-dark-garmz-dropdown",
               spacing.twoXs.marginTop,
               spacing.twoXs.marginBottom,
               border.sm.all,

@@ -1,13 +1,14 @@
 /* eslint-disable max-len */
 module.exports = {
   content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
+  darkMode: ["class", '[data-mode="dark"]'],
   theme: {
     transparent: "transparent",
     current: "currentColor",
     extend: {
       colors: {
         // light mode
-        tremor: {
+        garmz: {
           brand: {
             faint: "#eff6ff", // blue-50
             muted: "#bfdbfe", // blue-200
@@ -37,7 +38,7 @@ module.exports = {
           },
         },
         // dark mode
-        "dark-tremor": {
+        "dark-garmz": {
           brand: {
             faint: "#0B1229", // custom
             muted: "#172554", // blue-950
@@ -69,24 +70,24 @@ module.exports = {
       },
       boxShadow: {
         // light
-        "tremor-input": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
-        "tremor-card": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
-        "tremor-dropdown": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+        "garmz-input": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+        "garmz-card": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+        "garmz-dropdown": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
         // dark
-        "dark-tremor-input": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
-        "dark-tremor-card": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
-        "dark-tremor-dropdown": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+        "dark-garmz-input": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+        "dark-garmz-card": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+        "dark-garmz-dropdown": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
       },
       borderRadius: {
-        "tremor-small": "0.375rem",
-        "tremor-default": "0.5rem",
-        "tremor-full": "9999px",
+        "garmz-small": "0.375rem",
+        "garmz-default": "0.5rem",
+        "garmz-full": "9999px",
       },
       fontSize: {
-        "tremor-label": ["0.75rem"],
-        "tremor-default": ["0.875rem", { lineHeight: "1.25rem" }],
-        "tremor-title": ["1.125rem", { lineHeight: "1.75rem" }],
-        "tremor-metric": ["1.875rem", { lineHeight: "2.25rem" }],
+        "garmz-label": ["0.75rem"],
+        "garmz-default": ["0.875rem", { lineHeight: "1.25rem" }],
+        "garmz-title": ["1.125rem", { lineHeight: "1.75rem" }],
+        "garmz-metric": ["1.875rem", { lineHeight: "2.25rem" }],
       },
     },
   },

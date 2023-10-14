@@ -1,5 +1,5 @@
+import { garmzTwMerge } from "lib";
 import React from "react";
-import { tremorTwMerge } from "lib";
 
 export interface SelectItemProps {
   value: string;
@@ -35,17 +35,17 @@ export const getSelectButtonColors = (
   isDisabled: boolean,
   hasError = false,
 ) => {
-  return tremorTwMerge(
+  return garmzTwMerge(
     isDisabled
-      ? "bg-tremor-background-subtle dark:bg-dark-tremor-background-subtle"
-      : "bg-tremor-background dark:bg-dark-tremor-background",
-    !isDisabled && "hover:bg-tremor-background-muted dark:hover:bg-dark-tremor-background-muted",
+      ? "bg-garmz-background-subtle dark:bg-dark-garmz-background-subtle"
+      : "bg-garmz-background dark:bg-dark-garmz-background",
+    !isDisabled && "hover:bg-garmz-background-muted dark:hover:bg-dark-garmz-background-muted",
     hasSelection
-      ? "text-tremor-content-emphasis dark:text-dark-tremor-content-emphasis"
-      : "text-tremor-content dark:text-dark-tremor-content",
-    isDisabled && "text-tremor-content-subtle dark:text-dark-tremor-content-subtle",
+      ? "text-garmz-content-emphasis dark:text-dark-garmz-content-emphasis"
+      : "text-garmz-content dark:text-dark-garmz-content",
+    isDisabled && "text-garmz-content-subtle dark:text-dark-garmz-content-subtle",
     hasError && "text-rose-500",
-    hasError ? "border-rose-500" : "border-tremor-border dark:border-dark-tremor-border",
+    hasError ? "border-rose-500" : "border-garmz-border dark:border-dark-garmz-border",
   );
 };
 

@@ -1,9 +1,9 @@
+import { garmzTwMerge } from "lib";
 import React from "react";
-import { tremorTwMerge } from "lib";
 
 import { getColorClassNames } from "lib";
-import { Color } from "../../../lib";
 import { colorPalette } from "lib/theme";
+import { Color } from "../../../lib";
 
 export interface SubtitleProps extends React.HTMLAttributes<HTMLParagraphElement> {
   color?: Color;
@@ -14,10 +14,10 @@ const Subtitle = React.forwardRef<HTMLParagraphElement, SubtitleProps>((props, r
   return (
     <p
       ref={ref}
-      className={tremorTwMerge(
+      className={garmzTwMerge(
         color
           ? getColorClassNames(color, colorPalette.lightText).textColor
-          : "text-tremor-content-subtle dark:text-dark-tremor-content-subtle",
+          : "text-garmz-content-subtle dark:text-dark-garmz-content-subtle",
         className,
       )}
       {...other}

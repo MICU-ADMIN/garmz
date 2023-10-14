@@ -1,12 +1,12 @@
 "use client";
+import { garmzTwMerge } from "lib";
 import React, { createContext } from "react";
-import { tremorTwMerge } from "lib";
 
 import { BaseColorContext } from "contexts";
 
+import { Tab } from "@headlessui/react";
 import { border, makeClassName, spacing } from "lib";
 import { Color } from "../../../lib";
-import { Tab } from "@headlessui/react";
 
 const makeTabListClassName = makeClassName("TabList");
 
@@ -15,23 +15,23 @@ export type TabVariant = "line" | "solid";
 export const TabVariantContext = createContext<TabVariant>("line");
 
 const variantStyles: { [key in TabVariant]: string } = {
-  line: tremorTwMerge(
+  line: garmzTwMerge(
     // common
     "flex",
     // light
-    "border-tremor-border",
+    "border-garmz-border",
     // dark
-    "dark:border-dark-tremor-border",
+    "dark:border-dark-garmz-border",
     spacing.twoXl.spaceX,
     border.sm.bottom,
   ),
-  solid: tremorTwMerge(
+  solid: garmzTwMerge(
     // common
-    "inline-flex p-0.5 rounded-tremor-default",
+    "inline-flex p-0.5 rounded-garmz-default",
     // light
-    "bg-tremor-background-subtle",
+    "bg-garmz-background-subtle",
     // dark
-    "dark:bg-dark-tremor-background-subtle",
+    "dark:bg-dark-garmz-background-subtle",
     spacing.xs.spaceX,
   ),
 };
@@ -48,7 +48,7 @@ const TabList = React.forwardRef<HTMLDivElement, TabListProps>((props, ref) => {
   return (
     <Tab.List
       ref={ref}
-      className={tremorTwMerge(
+      className={garmzTwMerge(
         makeTabListClassName("root"),
         "justify-start overflow-x-clip",
         variantStyles[variant],

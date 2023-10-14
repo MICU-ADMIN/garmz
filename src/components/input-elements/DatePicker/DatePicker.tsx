@@ -1,19 +1,19 @@
 "use client";
+import { border, sizing, spacing, garmzTwMerge } from "lib";
 import React, { useMemo } from "react";
-import { sizing, tremorTwMerge, border, spacing } from "lib";
 import { DayPickerSingleProps } from "react-day-picker";
 
 import { startOfMonth, startOfToday } from "date-fns";
 import { enUS } from "date-fns/locale";
 
+import { Popover } from "@headlessui/react";
+import { CalendarIcon, XCircleIcon } from "assets";
+import { Calendar } from "components/input-elements/Calendar";
+import { makeDatePickerClassName } from "components/input-elements/DatePicker/datePickerUtils";
 import { useInternalState } from "hooks";
 import { Color } from "../../../lib/inputTypes";
 import { formatSelectedDates } from "../DateRangePicker/dateRangePickerUtils";
-import { CalendarIcon, XCircleIcon } from "assets";
-import { Popover } from "@headlessui/react";
 import { getSelectButtonColors, hasValue } from "../selectUtils";
-import { Calendar } from "components/input-elements/Calendar";
-import { makeDatePickerClassName } from "components/input-elements/DatePicker/datePickerUtils";
 
 const TODAY = startOfToday();
 
@@ -82,22 +82,22 @@ const DatePicker = React.forwardRef<HTMLDivElement, DatePickerProps>((props, ref
     <Popover
       ref={ref}
       as="div"
-      className={tremorTwMerge(
-        "relative w-full min-w-[10rem] text-tremor-default",
-        "focus:ring-2 focus:ring-tremor-brand-muted focus:dark:focus:ring-dark-tremor-brand-muted",
+      className={garmzTwMerge(
+        "relative w-full min-w-[10rem] text-garmz-default",
+        "focus:ring-2 focus:ring-garmz-brand-muted focus:dark:focus:ring-dark-garmz-brand-muted",
         className,
       )}
       {...other}
     >
       <Popover.Button
         disabled={disabled}
-        className={tremorTwMerge(
+        className={garmzTwMerge(
           // common
-          "w-full outline-none text-left whitespace-nowrap truncate focus:ring-2 transition duration-100 rounded-tremor-default flex flex-nowrap",
+          "w-full outline-none text-left whitespace-nowrap truncate focus:ring-2 transition duration-100 rounded-garmz-default flex flex-nowrap",
           // light
-          "border-tremor-border shadow-tremor-input text-tremor-content-emphasis focus:border-tremor-brand-subtle",
+          "border-garmz-border shadow-garmz-input text-garmz-content-emphasis focus:border-garmz-brand-subtle",
           // dark
-          "dark:border-dark-tremor-border dark:shadow-dark-tremor-input dark:text-dark-tremor-content-emphasis dark:focus:border-dark-tremor-brand-subtle",
+          "dark:border-dark-garmz-border dark:shadow-dark-garmz-input dark:text-dark-garmz-content-emphasis dark:focus:border-dark-garmz-brand-subtle",
           spacing.lg.paddingLeft,
           isClearEnabled ? spacing.fourXl.paddingRight : spacing.twoXl.paddingRight,
           spacing.sm.paddingY,
@@ -106,13 +106,13 @@ const DatePicker = React.forwardRef<HTMLDivElement, DatePickerProps>((props, ref
         )}
       >
         <CalendarIcon
-          className={tremorTwMerge(
+          className={garmzTwMerge(
             makeDatePickerClassName("calendarIcon"),
             "flex-none shrink-0",
             // light
-            "text-tremor-content-subtle",
+            "text-garmz-content-subtle",
             // light
-            "dark:text-dark-tremor-content-subtle",
+            "dark:text-dark-garmz-content-subtle",
             sizing.lg.height,
             sizing.lg.width,
             spacing.threeXs.negativeMarginLeft,
@@ -125,7 +125,7 @@ const DatePicker = React.forwardRef<HTMLDivElement, DatePickerProps>((props, ref
       {isClearEnabled && selectedValue ? (
         <button
           type="button"
-          className={tremorTwMerge(
+          className={garmzTwMerge(
             "absolute outline-none inset-y-0 right-0 flex items-center transition duration-100",
             spacing.twoXl.marginRight,
           )}
@@ -135,13 +135,13 @@ const DatePicker = React.forwardRef<HTMLDivElement, DatePickerProps>((props, ref
           }}
         >
           <XCircleIcon
-            className={tremorTwMerge(
+            className={garmzTwMerge(
               // common
               "flex-none",
               // light
-              "text-tremor-content-subtle",
+              "text-garmz-content-subtle",
               // dark
-              "dark:text-dark-tremor-content-subtle",
+              "dark:text-dark-garmz-content-subtle",
               sizing.md.height,
               sizing.md.width,
             )}
@@ -149,13 +149,13 @@ const DatePicker = React.forwardRef<HTMLDivElement, DatePickerProps>((props, ref
         </button>
       ) : null}
       <Popover.Panel
-        className={tremorTwMerge(
+        className={garmzTwMerge(
           // common
-          "absolute z-10 divide-y overflow-y-auto min-w-min left-0 outline-none rounded-tremor-default p-3",
+          "absolute z-10 divide-y overflow-y-auto min-w-min left-0 outline-none rounded-garmz-default p-3",
           // light
-          "bg-tremor-background border-tremor-border divide-tremor-border shadow-tremor-dropdown",
+          "bg-garmz-background border-garmz-border divide-garmz-border shadow-garmz-dropdown",
           // dark
-          "dark:bg-dark-tremor-background dark:border-dark-tremor-border dark:divide-dark-tremor-border dark:shadow-dark-tremor-dropdown",
+          "dark:bg-dark-garmz-background dark:border-dark-garmz-border dark:divide-dark-garmz-border dark:shadow-dark-garmz-dropdown",
           spacing.twoXs.marginTop,
           spacing.twoXs.marginBottom,
           border.sm.all,

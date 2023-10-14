@@ -1,5 +1,5 @@
+import { makeClassName, spacing, garmzTwMerge } from "lib";
 import React from "react";
-import { tremorTwMerge, makeClassName, spacing } from "lib";
 
 const makeTableFooterCellClassName = makeClassName("TableFooterCell");
 
@@ -12,14 +12,14 @@ const TableFooterCell = React.forwardRef<
     <>
       <th
         ref={ref}
-        className={tremorTwMerge(
+        className={garmzTwMerge(
           makeTableFooterCellClassName("root"),
           // common
           //"whitespace-nowrap text-left font-semibold",
           // light
-          "text-tremor-content font-medium",
+          "text-garmz-content font-medium",
           // dark
-          "dark:text-dark-tremor-content",
+          "dark:text-dark-garmz-content",
           spacing.none.top,
           spacing.twoXl.paddingX,
           spacing.xl.paddingY,

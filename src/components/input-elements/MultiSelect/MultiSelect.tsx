@@ -1,6 +1,6 @@
 "use client";
+import { garmzTwMerge } from "lib";
 import React, { useMemo, useState } from "react";
-import { tremorTwMerge } from "lib";
 
 import { SelectedValueContext } from "contexts";
 
@@ -8,10 +8,10 @@ import { useInternalState } from "hooks";
 
 import { ArrowDownHeadIcon, SearchIcon, XCircleIcon } from "assets";
 
-import { border, makeClassName, sizing, spacing } from "lib";
-import { getFilteredOptions, getSelectButtonColors } from "../selectUtils";
 import { Listbox } from "@headlessui/react";
 import XIcon from "assets/XIcon";
+import { border, makeClassName, sizing, spacing } from "lib";
+import { getFilteredOptions, getSelectButtonColors } from "../selectUtils";
 
 const makeMultiSelectClassName = makeClassName("MultiSelect");
 
@@ -73,9 +73,9 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>((props, r
         }) as any
       }
       disabled={disabled}
-      className={tremorTwMerge(
+      className={garmzTwMerge(
         // common
-        "w-full min-w-[10rem] relative text-tremor-default",
+        "w-full min-w-[10rem] relative text-garmz-default",
         className,
       )}
       {...other}
@@ -84,13 +84,13 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>((props, r
       {({ value }) => (
         <>
           <Listbox.Button
-            className={tremorTwMerge(
+            className={garmzTwMerge(
               // common
-              "w-full outline-none text-left whitespace-nowrap truncate rounded-tremor-default focus:ring-2 transition duration-100",
+              "w-full outline-none text-left whitespace-nowrap truncate rounded-garmz-default focus:ring-2 transition duration-100",
               // light
-              "border-tremor-border shadow-tremor-input focus:border-tremor-brand-subtle focus:ring-tremor-brand-muted",
+              "border-garmz-border shadow-garmz-input focus:border-garmz-brand-subtle focus:ring-garmz-brand-muted",
               // dark
-              "dark:border-dark-tremor-border dark:shadow-dark-tremor-input dark:focus:border-dark-tremor-brand-subtle dark:focus:ring-dark-tremor-brand-muted",
+              "dark:border-dark-garmz-border dark:shadow-dark-garmz-input dark:focus:border-dark-garmz-brand-subtle dark:focus:ring-dark-garmz-brand-muted",
               Icon ? "p-10 -ml-0.5" : spacing.lg.paddingLeft,
               spacing.fourXl.paddingRight,
               spacing.xs.paddingY,
@@ -100,20 +100,20 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>((props, r
           >
             {Icon && (
               <span
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   "absolute inset-y-0 left-0 flex items-center ml-px",
                   spacing.md.paddingLeft,
                 )}
               >
                 <Icon
-                  className={tremorTwMerge(
+                  className={garmzTwMerge(
                     makeMultiSelectClassName("Icon"),
                     // common
                     "flex-none",
                     // light
-                    "text-tremor-content-subtle",
+                    "text-garmz-content-subtle",
                     // dark
-                    "dark:text-dark-tremor-content-subtle",
+                    "dark:text-dark-garmz-content-subtle",
                     sizing.lg.height,
                     sizing.lg.width,
                   )}
@@ -129,13 +129,13 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>((props, r
                       return (
                         <div
                           key={index}
-                          className={tremorTwMerge(
+                          className={garmzTwMerge(
                             "max-w-[100px] lg:max-w-[200px] flex justify-center items-center pl-2 pr-1.5 py-1 font-medium",
-                            "rounded-tremor-small",
-                            "bg-tremor-background-muted dark:bg-dark-tremor-background-muted",
-                            "bg-tremor-background-subtle dark:bg-dark-tremor-background-subtle",
-                            "text-tremor-content-default dark:text-dark-tremor-content-default",
-                            "text-tremor-content-emphasis dark:text-dark-tremor-content-emphasis",
+                            "rounded-garmz-small",
+                            "bg-garmz-background-muted dark:bg-dark-garmz-background-muted",
+                            "bg-garmz-background-subtle dark:bg-dark-garmz-background-subtle",
+                            "text-garmz-content-default dark:text-dark-garmz-content-default",
+                            "text-garmz-content-emphasis dark:text-dark-garmz-content-emphasis",
                           )}
                         >
                           <div className="text-xs truncate ">
@@ -150,14 +150,14 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>((props, r
                             }}
                           >
                             <XIcon
-                              className={tremorTwMerge(
+                              className={garmzTwMerge(
                                 makeMultiSelectClassName("clearIconItem"),
                                 // common
-                                "cursor-pointer rounded-tremor-full w-3.5 h-3.5 ml-2",
+                                "cursor-pointer rounded-garmz-full w-3.5 h-3.5 ml-2",
                                 // light
-                                "text-tremor-content-subtle hover:text-tremor-content",
+                                "text-garmz-content-subtle hover:text-garmz-content",
                                 // dark
-                                "dark:text-dark-tremor-content-subtle dark:hover:text-tremor-content",
+                                "dark:text-dark-garmz-content-subtle dark:hover:text-garmz-content",
                               )}
                             />
                           </div>
@@ -170,20 +170,20 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>((props, r
               )}
             </div>
             <span
-              className={tremorTwMerge(
+              className={garmzTwMerge(
                 "absolute inset-y-0 right-0 flex items-center",
                 spacing.md.marginRight,
               )}
             >
               <ArrowDownHeadIcon
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   makeMultiSelectClassName("arrowDownIcon"),
                   // common
                   "flex-none",
                   // light
-                  "text-tremor-content-subtle",
+                  "text-garmz-content-subtle",
                   // dark
-                  "dark:text-dark-tremor-content-subtle",
+                  "dark:text-dark-garmz-content-subtle",
                   sizing.md.height,
                   sizing.md.width,
                 )}
@@ -195,7 +195,7 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>((props, r
           {hasSelection && !disabled ? (
             <button
               type="button"
-              className={tremorTwMerge(
+              className={garmzTwMerge(
                 "absolute inset-y-0 right-0 flex items-center",
                 spacing.fourXl.marginRight,
               )}
@@ -205,14 +205,14 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>((props, r
               }}
             >
               <XCircleIcon
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   makeMultiSelectClassName("clearIconAllItems"),
                   // common
                   "flex-none",
                   // light
-                  "text-tremor-content-subtle",
+                  "text-garmz-content-subtle",
                   // dark
-                  "dark:text-dark-tremor-content-subtle",
+                  "dark:text-dark-garmz-content-subtle",
                   sizing.md.height,
                   sizing.md.width,
                 )}
@@ -221,38 +221,38 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>((props, r
           ) : null}
 
           <Listbox.Options
-            className={tremorTwMerge(
+            className={garmzTwMerge(
               // common
-              "absolute z-10 divide-y overflow-y-auto max-h-[228px] w-full left-0 outline-none rounded-tremor-default",
+              "absolute z-10 divide-y overflow-y-auto max-h-[228px] w-full left-0 outline-none rounded-garmz-default",
               // light
-              "bg-tremor-background border-tremor-border divide-tremor-border shadow-tremor-dropdown",
+              "bg-garmz-background border-garmz-border divide-garmz-border shadow-garmz-dropdown",
               // dark
-              "dark:bg-dark-tremor-background dark:border-dark-tremor-border dark:divide-dark-tremor-border dark:shadow-dark-tremor-dropdown",
+              "dark:bg-dark-garmz-background dark:border-dark-garmz-border dark:divide-dark-garmz-border dark:shadow-dark-garmz-dropdown",
               spacing.twoXs.marginTop,
               spacing.twoXs.marginBottom,
               border.sm.all,
             )}
           >
             <div
-              className={tremorTwMerge(
+              className={garmzTwMerge(
                 // common
                 "flex items-center w-full",
                 // light
-                "bg-tremor-background-muted",
+                "bg-garmz-background-muted",
                 // dark
-                "dark:bg-dark-tremor-background-muted",
+                "dark:bg-dark-garmz-background-muted",
                 spacing.md.paddingX,
               )}
             >
               <span>
                 <SearchIcon
-                  className={tremorTwMerge(
+                  className={garmzTwMerge(
                     // common
                     "flex-none",
                     // light
-                    "text-tremor-content-subtle",
+                    "text-garmz-content-subtle",
                     // dark
-                    "dark:text-dark-tremor-content-subtle",
+                    "dark:text-dark-garmz-content-subtle",
                     spacing.sm.marginRight,
                     sizing.md.height,
                     sizing.md.width,
@@ -264,13 +264,13 @@ const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>((props, r
                 type="input"
                 autoComplete="off"
                 placeholder={placeholderSearch}
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   // common
-                  "w-full focus:outline-none focus:ring-none bg-transparent text-tremor-default",
+                  "w-full focus:outline-none focus:ring-none bg-transparent text-garmz-default",
                   // light
-                  "text-tremor-content-emphasis",
+                  "text-garmz-content-emphasis",
                   // dark
-                  "dark:text-dark-tremor-content-emphasis",
+                  "dark:text-dark-garmz-content-emphasis",
                   spacing.sm.paddingY,
                 )}
                 onKeyDown={(e) => {

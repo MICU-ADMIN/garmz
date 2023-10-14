@@ -1,9 +1,9 @@
 "use client";
+import { garmzTwMerge } from "lib";
 import React from "react";
-import { tremorTwMerge } from "lib";
 
-import { makeClassName, spacing } from "lib";
 import { Disclosure } from "@headlessui/react";
+import { makeClassName, spacing } from "lib";
 
 const makeAccordionBodyClassName = makeClassName("AccordionBody");
 
@@ -13,14 +13,14 @@ const AccordionBody = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTML
     return (
       <Disclosure.Panel
         ref={ref}
-        className={tremorTwMerge(
+        className={garmzTwMerge(
           makeAccordionBodyClassName("root"),
           // common
-          "w-full text-tremor-default",
+          "w-full text-garmz-default",
           // light
-          "text-tremor-content",
+          "text-garmz-content",
           // dark
-          "dark:text-dark-tremor-content",
+          "dark:text-dark-garmz-content",
           spacing.twoXl.paddingX,
           spacing.lg.paddingBottom,
           className,
