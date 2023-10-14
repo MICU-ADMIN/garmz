@@ -1,23 +1,23 @@
 "use client";
+import { BaseColors, defaultValueFormatter, themeColorRange, garmzTwMerge } from "lib";
 import React, { useEffect } from "react";
-import { tremorTwMerge, defaultValueFormatter, themeColorRange, BaseColors } from "lib";
 import {
   Pie,
   PieChart as ReChartsDonutChart,
   ResponsiveContainer,
-  Tooltip,
   Sector,
+  Tooltip,
 } from "recharts";
 
-import NoData from "../common/NoData";
 import { Color, ValueFormatter } from "../../../lib/inputTypes";
+import NoData from "../common/NoData";
 
-import { parseData, parseLabelInput } from "./inputParser";
 import { DonutChartTooltip } from "./DonutChartTooltip";
+import { parseData, parseLabelInput } from "./inputParser";
 
-import type BaseAnimationTimingProps from "../common/BaseAnimationTimingProps";
 import type { EventProps } from "components/chart-elements/common";
 import { CustomTooltipType } from "components/chart-elements/common/CustomTooltipProps";
+import type BaseAnimationTimingProps from "../common/BaseAnimationTimingProps";
 
 type DonutChartVariant = "donut" | "pie";
 
@@ -84,7 +84,7 @@ const DonutChart = React.forwardRef<HTMLDivElement, DonutChartProps>((props, ref
     label,
     showLabel = true,
     animationDuration = 900,
-    showAnimation = true,
+    showAnimation = false,
     showTooltip = true,
     noDataText,
     onValueChange,
@@ -125,7 +125,7 @@ const DonutChart = React.forwardRef<HTMLDivElement, DonutChartProps>((props, ref
   }, [activeIndex]);
 
   return (
-    <div ref={ref} className={tremorTwMerge("w-full h-40", className)} {...other}>
+    <div ref={ref} className={garmzTwMerge("w-full h-40", className)} {...other}>
       <ResponsiveContainer className="h-full w-full">
         {data?.length ? (
           <ReChartsDonutChart
@@ -141,11 +141,11 @@ const DonutChart = React.forwardRef<HTMLDivElement, DonutChartProps>((props, ref
           >
             {showLabel && isDonut ? (
               <text
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   // light
-                  "fill-tremor-content-emphasis",
+                  "fill-garmz-content-emphasis",
                   // dark
-                  "dark:fill-dark-tremor-content-emphasis",
+                  "dark:fill-dark-garmz-content-emphasis",
                 )}
                 x="50%"
                 y="50%"
@@ -156,8 +156,8 @@ const DonutChart = React.forwardRef<HTMLDivElement, DonutChartProps>((props, ref
               </text>
             ) : null}
             <Pie
-              className={tremorTwMerge(
-                "stroke-tremor-background dark:stroke-dark-tremor-background",
+              className={garmzTwMerge(
+                "stroke-garmz-background dark:stroke-dark-garmz-background",
                 onValueChange ? "cursor-pointer" : "cursor-default",
               )}
               data={parseData(data, colors)}

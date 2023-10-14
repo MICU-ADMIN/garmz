@@ -1,9 +1,9 @@
+import { garmzTwMerge } from "lib";
 import React from "react";
-import { tremorTwMerge } from "lib";
 
 import { border, getColorClassNames, makeClassName, sizing, spacing } from "lib";
-import { Color } from "../../../lib";
 import { colorPalette } from "lib/theme";
+import { Color } from "../../../lib";
 
 const makeCalloutClassName = makeClassName("Callout");
 
@@ -20,20 +20,21 @@ const Callout = React.forwardRef<HTMLDivElement, CalloutProps>((props, ref) => {
   return (
     <div
       ref={ref}
-      className={tremorTwMerge(
+      className={garmzTwMerge(
         makeCalloutClassName("root"),
-        "flex flex-col overflow-hidden rounded-tremor-default text-tremor-default",
+        "flex flex-col overflow-hidden rounded-garmz-default text-garmz-default",
         color
-          ? tremorTwMerge(
-              getColorClassNames(color, colorPalette.canvasBackground).bgColor,
+          ? garmzTwMerge(
+              getColorClassNames(color, colorPalette.background).bgColor,
               getColorClassNames(color, colorPalette.darkBorder).borderColor,
               getColorClassNames(color, colorPalette.darkText).textColor,
+              "dark:bg-opacity-10 bg-opacity-10",
             )
-          : tremorTwMerge(
+          : garmzTwMerge(
               // light
-              "bg-tremor-brand-faint border-tremor-brand-emphasis text-tremor-brand-emphasis",
+              "bg-garmz-brand-faint border-garmz-brand-emphasis text-garmz-brand-emphasis",
               // dark
-              "dark:bg-dark-tremor-brand-faint dark:border-dark-tremor-brand-emphasis dark:text-dark-tremor-brand-emphasis",
+              "dark:bg-dark-garmz-brand-muted/70 dark:border-dark-garmz-brand-emphasis dark:text-dark-garmz-brand-emphasis",
             ),
         spacing.lg.paddingY,
         spacing.lg.paddingRight,
@@ -43,10 +44,10 @@ const Callout = React.forwardRef<HTMLDivElement, CalloutProps>((props, ref) => {
       )}
       {...other}
     >
-      <div className={tremorTwMerge(makeCalloutClassName("header"), "flex items-start")}>
+      <div className={garmzTwMerge(makeCalloutClassName("header"), "flex items-start")}>
         {Icon ? (
           <Icon
-            className={tremorTwMerge(
+            className={garmzTwMerge(
               makeCalloutClassName("icon"),
               "flex-none",
               sizing.lg.height,
@@ -55,10 +56,10 @@ const Callout = React.forwardRef<HTMLDivElement, CalloutProps>((props, ref) => {
             )}
           />
         ) : null}
-        <h4 className={tremorTwMerge(makeCalloutClassName("title"), "font-semibold")}>{title}</h4>
+        <h4 className={garmzTwMerge(makeCalloutClassName("title"), "font-semibold")}>{title}</h4>
       </div>
       <p
-        className={tremorTwMerge(
+        className={garmzTwMerge(
           makeCalloutClassName("body"),
           "overflow-y-auto",
           children ? spacing.sm.marginTop : "",

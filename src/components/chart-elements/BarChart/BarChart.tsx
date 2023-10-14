@@ -1,12 +1,12 @@
 "use client";
+import { colorPalette, getColorClassNames, garmzTwMerge } from "lib";
 import React, { useState } from "react";
-import { colorPalette, getColorClassNames, tremorTwMerge } from "lib";
 
 import {
   Bar,
+  BarChart as ReChartsBarChart,
   CartesianGrid,
   Legend,
-  BarChart as ReChartsBarChart,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -14,11 +14,11 @@ import {
 } from "recharts";
 import { AxisDomain } from "recharts/types/util/types";
 
-import { constructCategoryColors, deepEqual, getYAxisDomain } from "../common/utils";
 import BaseChartProps from "../common/BaseChartProps";
 import ChartLegend from "../common/ChartLegend";
 import ChartTooltip from "../common/ChartTooltip";
 import NoData from "../common/NoData";
+import { constructCategoryColors, deepEqual, getYAxisDomain } from "../common/utils";
 
 import { BaseColors, defaultValueFormatter, themeColorRange } from "lib";
 
@@ -122,7 +122,7 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>((props, ref) =>
   const yAxisDomain = getYAxisDomain(autoMinValue, minValue, maxValue);
 
   return (
-    <div ref={ref} className={tremorTwMerge("w-full h-80", className)} {...other}>
+    <div ref={ref} className={garmzTwMerge("w-full h-80", className)} {...other}>
       <ResponsiveContainer className="h-full w-full">
         {data?.length ? (
           <ReChartsBarChart
@@ -141,13 +141,13 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>((props, ref) =>
           >
             {showGridLines ? (
               <CartesianGrid
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   // common
                   "stroke-1",
                   // light
-                  "stroke-tremor-border",
+                  "stroke-garmz-border",
                   // dark
-                  "dark:stroke-dark-tremor-border",
+                  "dark:stroke-dark-garmz-border",
                 )}
                 horizontal={layout !== "vertical"}
                 vertical={layout === "vertical"}
@@ -163,13 +163,13 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>((props, ref) =>
                 ticks={startEndOnly ? [data[0][index], data[data.length - 1][index]] : undefined}
                 fill=""
                 stroke=""
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   // common
-                  "mt-4 text-tremor-label",
+                  "mt-4 text-garmz-label",
                   // light
-                  "fill-tremor-content",
+                  "fill-garmz-content",
                   // dark
-                  "dark:fill-dark-tremor-content",
+                  "dark:fill-dark-garmz-content",
                 )}
                 tickLine={false}
                 axisLine={false}
@@ -182,13 +182,13 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>((props, ref) =>
                 domain={yAxisDomain as AxisDomain}
                 fill=""
                 stroke=""
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   // common
-                  "text-tremor-label",
+                  "text-garmz-label",
                   // light
-                  "fill-tremor-content",
+                  "fill-garmz-content",
                   // dark
-                  "dark:fill-dark-tremor-content",
+                  "dark:fill-dark-garmz-content",
                 )}
                 tickLine={false}
                 axisLine={false}
@@ -209,13 +209,13 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>((props, ref) =>
                 tick={{ transform: "translate(-3, 0)" }}
                 fill=""
                 stroke=""
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   // common
-                  "text-tremor-label",
+                  "text-garmz-label",
                   // light
-                  "fill-tremor-content",
+                  "fill-garmz-content",
                   // dark
-                  "dark:fill-dark-tremor-content",
+                  "dark:fill-dark-garmz-content",
                 )}
                 tickFormatter={
                   relative ? (value: number) => `${(value * 100).toString()} %` : valueFormatter
@@ -235,13 +235,13 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>((props, ref) =>
                 tick={{ transform: "translate(0, 6)" }}
                 fill=""
                 stroke=""
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   // common
-                  "text-tremor-label",
+                  "text-garmz-label",
                   // light
-                  "fill-tremor-content",
+                  "fill-garmz-content",
                   // dark
-                  "dark:fill-dark-tremor-content",
+                  "dark:fill-dark-garmz-content",
                 )}
               />
             )}
@@ -295,7 +295,7 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>((props, ref) =>
             ) : null}
             {categories.map((category) => (
               <Bar
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   getColorClassNames(
                     categoryColors.get(category) ?? BaseColors.Gray,
                     colorPalette.background,

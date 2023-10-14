@@ -2,11 +2,11 @@
 import React, { Fragment, useState } from "react";
 import {
   Area,
+  AreaChart as ReChartsAreaChart,
   CartesianGrid,
   Dot,
   Legend,
   Line,
-  AreaChart as ReChartsAreaChart,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -14,23 +14,23 @@ import {
 } from "recharts";
 import { AxisDomain } from "recharts/types/util/types";
 
+import BaseChartProps from "../common/BaseChartProps";
+import ChartLegend from "../common/ChartLegend";
+import ChartTooltip from "../common/ChartTooltip";
+import NoData from "../common/NoData";
 import {
   constructCategoryColors,
   getYAxisDomain,
   hasOnlyOneValueForThisKey,
 } from "../common/utils";
-import BaseChartProps from "../common/BaseChartProps";
-import ChartLegend from "../common/ChartLegend";
-import ChartTooltip from "../common/ChartTooltip";
-import NoData from "../common/NoData";
 
 import {
   BaseColors,
-  defaultValueFormatter,
-  themeColorRange,
   colorPalette,
+  defaultValueFormatter,
   getColorClassNames,
-  tremorTwMerge,
+  themeColorRange,
+  garmzTwMerge,
 } from "lib";
 import { CurveType } from "../../../lib/inputTypes";
 
@@ -129,7 +129,7 @@ const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>((props, ref) 
     setActiveDot(undefined);
   }
   return (
-    <div ref={ref} className={tremorTwMerge("w-full h-80", className)} {...other}>
+    <div ref={ref} className={garmzTwMerge("w-full h-80", className)} {...other}>
       <ResponsiveContainer className="h-full w-full">
         {data?.length ? (
           <ReChartsAreaChart
@@ -147,13 +147,13 @@ const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>((props, ref) 
             {" "}
             {showGridLines ? (
               <CartesianGrid
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   // common
                   "stroke-1",
                   // light
-                  "stroke-tremor-border",
+                  "stroke-garmz-border",
                   // dark
-                  "dark:stroke-dark-tremor-border",
+                  "dark:stroke-dark-garmz-border",
                 )}
                 horizontal={true}
                 vertical={false}
@@ -166,13 +166,13 @@ const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>((props, ref) 
               ticks={startEndOnly ? [data[0][index], data[data.length - 1][index]] : undefined}
               fill=""
               stroke=""
-              className={tremorTwMerge(
+              className={garmzTwMerge(
                 // common
-                "text-tremor-label",
+                "text-garmz-label",
                 // light
-                "fill-tremor-content",
+                "fill-garmz-content",
                 // dark
-                "dark:fill-dark-tremor-content",
+                "dark:fill-dark-garmz-content",
               )}
               interval="preserveStartEnd"
               tickLine={false}
@@ -190,13 +190,13 @@ const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>((props, ref) 
               tick={{ transform: "translate(-3, 0)" }}
               fill=""
               stroke=""
-              className={tremorTwMerge(
+              className={garmzTwMerge(
                 // common
-                "text-tremor-label",
+                "text-garmz-label",
                 // light
-                "fill-tremor-content",
+                "fill-garmz-content",
                 // dark
-                "dark:fill-dark-tremor-content",
+                "dark:fill-dark-garmz-content",
               )}
               tickFormatter={valueFormatter}
               allowDecimals={allowDecimals}
@@ -314,8 +314,8 @@ const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>((props, ref) 
                     props;
                   return (
                     <Dot
-                      className={tremorTwMerge(
-                        "stroke-tremor-background dark:stroke-dark-tremor-background",
+                      className={garmzTwMerge(
+                        "stroke-garmz-background dark:stroke-dark-garmz-background",
                         onValueChange ? "cursor-pointer" : "",
                         getColorClassNames(
                           categoryColors.get(dataKey) ?? BaseColors.Gray,
@@ -362,8 +362,8 @@ const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>((props, ref) 
                         strokeLinecap={strokeLinecap}
                         strokeLinejoin={strokeLinejoin}
                         strokeWidth={strokeWidth}
-                        className={tremorTwMerge(
-                          "stroke-tremor-background dark:stroke-dark-tremor-background",
+                        className={garmzTwMerge(
+                          "stroke-garmz-background dark:stroke-dark-garmz-background",
                           onValueChange ? "cursor-pointer" : "",
                           getColorClassNames(
                             categoryColors.get(dataKey) ?? BaseColors.Gray,
@@ -393,7 +393,7 @@ const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>((props, ref) 
             {onValueChange
               ? categories.map((category) => (
                   <Line
-                    className={tremorTwMerge("cursor-pointer")}
+                    className={garmzTwMerge("cursor-pointer")}
                     strokeOpacity={0}
                     key={category}
                     name={category}

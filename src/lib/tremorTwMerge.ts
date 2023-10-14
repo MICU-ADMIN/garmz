@@ -1,13 +1,13 @@
 import { extendTailwindMerge } from "tailwind-merge";
 
-export const tremorTwMerge = extendTailwindMerge({
+export const garmzTwMerge = extendTailwindMerge({
   classGroups: {
     boxShadow: [
       {
         shadow: [
           {
-            tremor: ["input", "card", "dropdown"],
-            "dark-tremor": ["input", "card", "dropdown"],
+            garmz: ["input", "card", "dropdown"],
+            "dark-garmz": ["input", "card", "dropdown"],
           },
         ],
       },
@@ -16,8 +16,8 @@ export const tremorTwMerge = extendTailwindMerge({
       {
         rounded: [
           {
-            tremor: ["small", "default", "full"],
-            "dark-tremor": ["small", "default", "full"],
+            garmz: ["small", "default", "full"],
+            "dark-garmz": ["small", "default", "full"],
           },
         ],
       },
@@ -26,8 +26,8 @@ export const tremorTwMerge = extendTailwindMerge({
       {
         text: [
           {
-            tremor: ["default", "title", "metric"],
-            "dark-tremor": ["default", "title", "metric"],
+            garmz: ["default", "title", "metric"],
+            "dark-garmz": ["default", "title", "metric"],
           },
         ],
       },

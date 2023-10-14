@@ -1,8 +1,7 @@
 "use client";
-import React, { useContext } from "react";
-import { tremorTwMerge } from "lib";
-import { makeClassName } from "lib";
 import { IndexContext, SelectedValueContext } from "contexts";
+import { makeClassName, garmzTwMerge } from "lib";
+import React, { useContext } from "react";
 
 const makeTabPanelClassName = makeClassName("TabPanel");
 
@@ -19,7 +18,7 @@ const TabPanel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
       // Not using Tab.Panel because of https://github.com/tailwindlabs/headlessui/discussions/2366.
       <div
         ref={ref}
-        className={tremorTwMerge(
+        className={garmzTwMerge(
           makeTabPanelClassName("root"),
           "w-full mt-2",
           isSelected ? "" : "hidden",

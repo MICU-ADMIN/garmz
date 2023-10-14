@@ -1,5 +1,5 @@
+import { makeClassName, spacing, garmzTwMerge } from "lib";
 import React from "react";
-import { tremorTwMerge, makeClassName, spacing } from "lib";
 
 const makeTableCellClassName = makeClassName("TableCell");
 
@@ -12,7 +12,7 @@ const TableCell = React.forwardRef<
     <>
       <td
         ref={ref}
-        className={tremorTwMerge(
+        className={garmzTwMerge(
           makeTableCellClassName("root"),
           "align-middle whitespace-nowrap tabular-nums text-left",
           spacing.twoXl.paddingAll,

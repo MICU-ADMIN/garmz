@@ -1,8 +1,8 @@
 "use client";
-import React, { ReactNode, useCallback, useRef, useState } from "react";
-import { border, mergeRefs, sizing, spacing, tremorTwMerge } from "lib";
 import { ExclamationFilledIcon, EyeIcon, EyeOffIcon } from "assets";
 import { getSelectButtonColors, hasValue } from "components/input-elements/selectUtils";
+import { border, mergeRefs, sizing, spacing, garmzTwMerge } from "lib";
+import React, { ReactNode, useCallback, useRef, useState } from "react";
 
 export interface BaseInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   type?: "text" | "password" | "email" | "url" | "number";
@@ -57,23 +57,23 @@ const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>((props, ref
   return (
     <>
       <div
-        className={tremorTwMerge(
+        className={garmzTwMerge(
           makeInputClassName("root"),
           // common
-          "relative w-full flex items-center min-w-[10rem] outline-none rounded-tremor-default",
+          "relative w-full flex items-center min-w-[10rem] outline-none rounded-garmz-default",
           // light
-          "shadow-tremor-input",
+          "shadow-garmz-input",
           // dark
-          "dark:shadow-dark-tremor-input",
+          "dark:shadow-dark-garmz-input",
           getSelectButtonColors(hasSelection, disabled, error),
           isFocused &&
-            tremorTwMerge(
+            garmzTwMerge(
               // common
               "ring-2 transition duration-100",
               // light
-              "border-tremor-brand-subtle ring-tremor-brand-muted",
+              "border-garmz-brand-subtle ring-garmz-brand-muted",
               // light
-              "dark:border-dark-tremor-brand-subtle dark:ring-dark-tremor-brand-muted",
+              "dark:border-dark-garmz-brand-subtle dark:ring-dark-garmz-brand-muted",
             ),
           border.sm.all,
           className,
@@ -92,14 +92,14 @@ const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>((props, ref
       >
         {Icon ? (
           <Icon
-            className={tremorTwMerge(
+            className={garmzTwMerge(
               makeInputClassName("icon"),
               // common
               "shrink-0",
               // light
-              "text-tremor-content-subtle",
+              "text-garmz-content-subtle",
               // light
-              "dark:text-dark-tremor-content-subtle",
+              "dark:text-dark-garmz-content-subtle",
               sizing.lg.height,
               sizing.lg.width,
               spacing.md.marginLeft,
@@ -111,21 +111,21 @@ const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>((props, ref
           defaultValue={defaultValue}
           value={value}
           type={isPasswordVisible ? "text" : type}
-          className={tremorTwMerge(
+          className={garmzTwMerge(
             makeInputClassName("input"),
             // common
-            "w-full focus:outline-none focus:ring-0 border-none bg-transparent text-tremor-default",
+            "w-full focus:outline-none focus:ring-0 border-none bg-transparent text-garmz-default",
             // light
-            "text-tremor-content-emphasis",
+            "text-garmz-content-emphasis",
             // dark
-            "dark:text-dark-tremor-content-emphasis",
+            "dark:text-dark-garmz-content-emphasis",
             "[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none",
             Icon ? spacing.sm.paddingLeft : spacing.lg.paddingLeft,
             error ? spacing.lg.paddingRight : spacing.twoXl.paddingRight,
             spacing.sm.paddingY,
             disabled
-              ? "placeholder:text-tremor-content-subtle dark:placeholder:text-dark-tremor-content-subtle"
-              : "placeholder:text-tremor-content dark:placeholder:text-dark-tremor-content",
+              ? "placeholder:text-garmz-content-subtle dark:placeholder:text-dark-garmz-content-subtle"
+              : "placeholder:text-garmz-content dark:placeholder:text-dark-garmz-content",
           )}
           placeholder={placeholder}
           disabled={disabled}
@@ -134,30 +134,30 @@ const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>((props, ref
         />
         {type === "password" && !disabled ? (
           <button
-            className={tremorTwMerge(makeInputClassName("toggleButton"), "mr-2")}
+            className={garmzTwMerge(makeInputClassName("toggleButton"), "mr-2")}
             type="button"
             onClick={() => toggleIsPasswordVisible()}
           >
             {isPasswordVisible ? (
               <EyeOffIcon
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   // common
                   "flex-none h-5 w-5 transition",
                   // light
-                  "text-tremor-content-subtle hover:text-tremor-content",
+                  "text-garmz-content-subtle hover:text-garmz-content",
                   // dark
-                  "dark:text-dark-tremor-content-subtle hover:dark:text-dark-tremor-content",
+                  "dark:text-dark-garmz-content-subtle hover:dark:text-dark-garmz-content",
                 )}
               />
             ) : (
               <EyeIcon
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   // common
                   "flex-none h-5 w-5 transition",
                   // light
-                  "text-tremor-content-subtle hover:text-tremor-content",
+                  "text-garmz-content-subtle hover:text-garmz-content",
                   // dark
-                  "dark:text-dark-tremor-content-subtle hover:dark:text-dark-tremor-content",
+                  "dark:text-dark-garmz-content-subtle hover:dark:text-dark-garmz-content",
                 )}
               />
             )}
@@ -165,7 +165,7 @@ const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>((props, ref
         ) : null}
         {error ? (
           <ExclamationFilledIcon
-            className={tremorTwMerge(
+            className={garmzTwMerge(
               makeInputClassName("errorIcon"),
               "text-rose-500 shrink-0",
               spacing.md.marginRight,
@@ -178,10 +178,7 @@ const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>((props, ref
       </div>
       {error && errorMessage ? (
         <p
-          className={tremorTwMerge(
-            makeInputClassName("errorMessage"),
-            "text-sm text-rose-500 mt-1",
-          )}
+          className={garmzTwMerge(makeInputClassName("errorMessage"), "text-sm text-rose-500 mt-1")}
         >
           {errorMessage}
         </p>

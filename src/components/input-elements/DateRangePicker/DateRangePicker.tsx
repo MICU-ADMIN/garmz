@@ -1,11 +1,11 @@
 "use client";
 
-import { CalendarIcon, XCircleIcon } from "assets";
-import { DateRange, DayPickerRangeProps } from "react-day-picker";
 import { Listbox, Popover } from "@headlessui/react";
-import React, { ReactElement, useMemo, useState } from "react";
+import { CalendarIcon, XCircleIcon } from "assets";
 import { startOfMonth, startOfToday } from "date-fns";
-import { border, sizing, spacing, tremorTwMerge } from "lib";
+import { border, sizing, spacing, garmzTwMerge } from "lib";
+import React, { ReactElement, useMemo, useState } from "react";
+import { DateRange, DayPickerRangeProps } from "react-day-picker";
 import {
   constructValueToNameMapping,
   getNodeText,
@@ -21,11 +21,11 @@ import {
 } from "./dateRangePickerUtils";
 
 import { Calendar } from "components/input-elements/Calendar";
-import { Color } from "../../../lib/inputTypes";
 import { DateRangePickerItemProps } from "components/input-elements/DateRangePicker/DateRangePickerItem";
 import { SelectItem } from "components/input-elements/Select";
 import { enUS } from "date-fns/locale";
 import { useInternalState } from "hooks";
+import { Color } from "../../../lib/inputTypes";
 
 const TODAY = startOfToday();
 
@@ -159,19 +159,19 @@ const DateRangePicker = React.forwardRef<HTMLDivElement, DateRangePickerProps>((
   return (
     <div
       ref={ref}
-      className={tremorTwMerge(
-        "w-full min-w-[10rem] relative flex justify-between text-tremor-default max-w-sm shadow-tremor-input dark:shadow-dark-tremor-input rounded-tremor-default",
+      className={garmzTwMerge(
+        "w-full min-w-[10rem] relative flex justify-between text-garmz-default max-w-sm shadow-garmz-input dark:shadow-dark-garmz-input rounded-garmz-default",
         className,
       )}
       {...other}
     >
       <Popover
         as="div"
-        className={tremorTwMerge(
+        className={garmzTwMerge(
           "w-full overflow-hidden",
-          enableSelect ? "rounded-l-tremor-default" : "rounded-tremor-default",
+          enableSelect ? "rounded-l-garmz-default" : "rounded-garmz-default",
           isCalendarButtonFocused &&
-            "ring-2 ring-tremor-brand-muted dark:focus:ring-dark-tremor-brand-muted z-10",
+            "ring-2 ring-garmz-brand-muted dark:focus:ring-dark-garmz-brand-muted z-10",
         )}
       >
         <div className="relative w-full overflow-hidden">
@@ -179,14 +179,14 @@ const DateRangePicker = React.forwardRef<HTMLDivElement, DateRangePickerProps>((
             onFocus={() => setIsCalendarButtonFocused(true)}
             onBlur={() => setIsCalendarButtonFocused(false)}
             disabled={disabled}
-            className={tremorTwMerge(
+            className={garmzTwMerge(
               // common
-              "w-full outline-none text-left whitespace-nowrap truncate focus:ring-2 transition duration-100 rounded-l-tremor-default flex flex-nowrap",
+              "w-full outline-none text-left whitespace-nowrap truncate focus:ring-2 transition duration-100 rounded-l-garmz-default flex flex-nowrap",
               // light
-              "rounded-l-tremor-default border-tremor-border text-tremor-content-emphasis focus:border-tremor-brand-subtle",
+              "rounded-l-garmz-default border-garmz-border text-garmz-content-emphasis focus:border-garmz-brand-subtle",
               // dark
-              "dark:border-dark-tremor-border dark:text-dark-tremor-content-emphasis dark:focus:border-dark-tremor-brand-subtle",
-              enableSelect ? "rounded-l-tremor-default" : "rounded-tremor-default",
+              "dark:border-dark-garmz-border dark:text-dark-garmz-content-emphasis dark:focus:border-dark-garmz-brand-subtle",
+              enableSelect ? "rounded-l-garmz-default" : "rounded-garmz-default",
               spacing.lg.paddingLeft,
               isClearEnabled ? spacing.fourXl.paddingRight : spacing.twoXl.paddingRight,
               spacing.sm.paddingY,
@@ -195,13 +195,13 @@ const DateRangePicker = React.forwardRef<HTMLDivElement, DateRangePickerProps>((
             )}
           >
             <CalendarIcon
-              className={tremorTwMerge(
+              className={garmzTwMerge(
                 makeDateRangePickerClassName("calendarIcon"),
                 "flex-none shrink-0",
                 // light
-                "text-tremor-content-subtle",
+                "text-garmz-content-subtle",
                 // light
-                "dark:text-dark-tremor-content-subtle",
+                "dark:text-dark-garmz-content-subtle",
                 sizing.lg.height,
                 sizing.lg.width,
                 spacing.threeXs.negativeMarginLeft,
@@ -214,7 +214,7 @@ const DateRangePicker = React.forwardRef<HTMLDivElement, DateRangePickerProps>((
           {isClearEnabled && selectedStartDate ? (
             <button
               type="button"
-              className={tremorTwMerge(
+              className={garmzTwMerge(
                 "absolute outline-none inset-y-0 right-0 flex items-center transition duration-100",
                 spacing.twoXl.marginRight,
               )}
@@ -224,14 +224,14 @@ const DateRangePicker = React.forwardRef<HTMLDivElement, DateRangePickerProps>((
               }}
             >
               <XCircleIcon
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   makeDateRangePickerClassName("clearIcon"),
                   // common
                   "flex-none",
                   // light
-                  "text-tremor-content-subtle",
+                  "text-garmz-content-subtle",
                   // dark
-                  "dark:text-dark-tremor-content-subtle",
+                  "dark:text-dark-garmz-content-subtle",
                   sizing.md.height,
                   sizing.md.width,
                 )}
@@ -241,13 +241,13 @@ const DateRangePicker = React.forwardRef<HTMLDivElement, DateRangePickerProps>((
         </div>
         <Popover.Panel
           focus={true}
-          className={tremorTwMerge(
+          className={garmzTwMerge(
             // common
-            "absolute z-10 divide-y overflow-y-auto min-w-min left-0 outline-none rounded-tremor-default p-3",
+            "absolute z-10 divide-y overflow-y-auto min-w-min left-0 outline-none rounded-garmz-default p-3",
             // light
-            "bg-tremor-background border-tremor-border divide-tremor-border shadow-tremor-dropdown",
+            "bg-garmz-background border-garmz-border divide-garmz-border shadow-garmz-dropdown",
             // dark
-            "dark:bg-dark-tremor-background dark:border-dark-tremor-border dark:divide-dark-tremor-border dark:shadow-dark-tremor-dropdown",
+            "dark:bg-dark-garmz-background dark:border-dark-garmz-border dark:divide-dark-garmz-border dark:shadow-dark-garmz-dropdown",
             spacing.twoXs.marginTop,
             spacing.twoXs.marginBottom,
             border.sm.all,
@@ -271,13 +271,13 @@ const DateRangePicker = React.forwardRef<HTMLDivElement, DateRangePickerProps>((
             disabled={disabledDays}
             enableYearNavigation={enableYearNavigation}
             classNames={{
-              day_range_middle: tremorTwMerge(
-                "!rounded-none aria-selected:!bg-tremor-background-subtle aria-selected:dark:!bg-dark-tremor-background-subtle aria-selected:!text-tremor-content aria-selected:dark:!bg-dark-tremor-background-subtle",
+              day_range_middle: garmzTwMerge(
+                "!rounded-none aria-selected:!bg-garmz-background-subtle aria-selected:dark:!bg-dark-garmz-background-subtle aria-selected:!text-garmz-content aria-selected:dark:!bg-dark-garmz-background-subtle",
               ),
               day_range_start:
-                "rounded-r-none rounded-l-tremor-small aria-selected:text-tremor-brand-inverted dark:aria-selected:text-dark-tremor-brand-inverted",
+                "rounded-r-none rounded-l-garmz-small aria-selected:text-garmz-brand-inverted dark:aria-selected:text-dark-garmz-brand-inverted",
               day_range_end:
-                "rounded-l-none rounded-r-tremor-small aria-selected:text-tremor-brand-inverted dark:aria-selected:text-dark-tremor-brand-inverted",
+                "rounded-l-none rounded-r-garmz-small aria-selected:text-garmz-brand-inverted dark:aria-selected:text-dark-garmz-brand-inverted",
             }}
             weekStartsOn={weekStartsOn}
             {...props}
@@ -287,10 +287,10 @@ const DateRangePicker = React.forwardRef<HTMLDivElement, DateRangePickerProps>((
       {enableSelect && (
         <Listbox
           as="div"
-          className={tremorTwMerge(
-            "w-48 overflow-hidden -ml-px rounded-r-tremor-default",
+          className={garmzTwMerge(
+            "w-48 overflow-hidden -ml-px rounded-r-garmz-default",
             isSelectButtonFocused &&
-              "ring-2 ring-tremor-brand-muted dark:focus:ring-dark-tremor-brand-muted z-10",
+              "ring-2 ring-garmz-brand-muted dark:focus:ring-dark-garmz-brand-muted z-10",
           )}
           value={selectedSelectValue}
           onChange={handleSelectClick}
@@ -301,13 +301,13 @@ const DateRangePicker = React.forwardRef<HTMLDivElement, DateRangePickerProps>((
               <Listbox.Button
                 onFocus={() => setIsSelectButtonFocused(true)}
                 onBlur={() => setIsSelectButtonFocused(false)}
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   // common
-                  "w-full outline-none text-left whitespace-nowrap truncate rounded-r-tremor-default transition duration-100",
+                  "w-full outline-none text-left whitespace-nowrap truncate rounded-r-garmz-default transition duration-100",
                   // light
-                  "border-tremor-border shadow-tremor-input text-tremor-content-emphasis focus:border-tremor-brand-subtle",
+                  "border-garmz-border shadow-garmz-input text-garmz-content-emphasis focus:border-garmz-brand-subtle",
                   // dark
-                  "dark:border-dark-tremor-border dark:shadow-dark-tremor-input dark:text-dark-tremor-content-emphasis dark:focus:border-dark-tremor-brand-subtle",
+                  "dark:border-dark-garmz-border dark:shadow-dark-garmz-input dark:text-dark-garmz-content-emphasis dark:focus:border-dark-garmz-brand-subtle",
                   spacing.twoXl.paddingLeft,
                   spacing.twoXl.paddingRight,
                   spacing.sm.paddingY,
@@ -318,13 +318,13 @@ const DateRangePicker = React.forwardRef<HTMLDivElement, DateRangePickerProps>((
                 {value ? valueToNameMapping.get(value) ?? selectPlaceholder : selectPlaceholder}
               </Listbox.Button>
               <Listbox.Options
-                className={tremorTwMerge(
+                className={garmzTwMerge(
                   // common
                   "absolute z-10 divide-y overflow-y-auto w-full inset-x-0 right-0 outline-none",
                   // light
-                  "shadow-tremor-dropdown bg-tremor-background border-tremor-border divide-tremor-border rounded-tremor-default",
+                  "shadow-garmz-dropdown bg-garmz-background border-garmz-border divide-garmz-border rounded-garmz-default",
                   // dark
-                  "dark:shadow-dark-tremor-dropdown dark:bg-dark-tremor-background dark:border-dark-tremor-border dark:divide-dark-tremor-border",
+                  "dark:shadow-dark-garmz-dropdown dark:bg-dark-garmz-background dark:border-dark-garmz-border dark:divide-dark-garmz-border",
                   spacing.twoXs.marginTop,
                   spacing.twoXs.marginBottom,
                   border.sm.all,

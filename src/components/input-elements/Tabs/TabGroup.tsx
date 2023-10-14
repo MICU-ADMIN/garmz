@@ -1,8 +1,7 @@
 "use client";
-import React from "react";
-import { tremorTwMerge } from "lib";
 import { Tab } from "@headlessui/react";
-import { makeClassName } from "lib";
+import { makeClassName, garmzTwMerge } from "lib";
+import React from "react";
 
 const makeTabGroupClassName = makeClassName("TabGroup");
 
@@ -23,7 +22,7 @@ const TabGroup = React.forwardRef<HTMLDivElement, TabGroupProps>((props, ref) =>
       defaultIndex={defaultIndex}
       selectedIndex={index}
       onChange={onIndexChange as any}
-      className={tremorTwMerge(makeTabGroupClassName("root"), "w-full", className)}
+      className={garmzTwMerge(makeTabGroupClassName("root"), "w-full", className)}
       {...other}
     >
       {children}

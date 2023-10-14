@@ -1,9 +1,9 @@
+import { garmzTwMerge } from "lib";
 import React from "react";
-import { tremorTwMerge } from "lib";
 
 import { getColorClassNames } from "lib";
-import { Color } from "../../../lib/inputTypes";
 import { colorPalette } from "lib/theme";
+import { Color } from "../../../lib/inputTypes";
 
 export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
   color?: Color;
@@ -14,16 +14,16 @@ const Text = React.forwardRef<HTMLParagraphElement, TextProps>((props, ref) => {
   return (
     <p
       ref={ref}
-      className={tremorTwMerge(
+      className={garmzTwMerge(
         // common
-        "text-tremor-default",
+        "text-garmz-default",
         color
           ? getColorClassNames(color, colorPalette.text).textColor
-          : tremorTwMerge(
+          : garmzTwMerge(
               // light
-              "text-tremor-content",
+              "text-garmz-content",
               // dark
-              "dark:text-dark-tremor-content",
+              "dark:text-dark-garmz-content",
             ),
         className,
       )}

@@ -1,7 +1,7 @@
-import { Sizing, border, getColorClassNames, sizing, spacing } from "lib";
+import { border, getColorClassNames, Sizing, sizing, spacing, garmzTwMerge } from "lib";
 
-import { Color, IconVariant } from "../../../lib/inputTypes";
 import { colorPalette } from "lib/theme";
+import { Color, IconVariant } from "../../../lib/inputTypes";
 
 export type WrapperProportionTypes = {
   paddingX: string;
@@ -69,25 +69,25 @@ export const shape: { [style: string]: ShapeTypes } = {
     shadow: "",
   },
   light: {
-    rounded: "rounded-tremor-default",
+    rounded: "rounded-garmz-default",
     border: "",
     ring: "",
     shadow: "",
   },
   shadow: {
-    rounded: "rounded-tremor-default",
+    rounded: "rounded-garmz-default",
     border: border.sm.all,
     ring: "",
-    shadow: "shadow-tremor-card dark:shadow-dark-tremor-card",
+    shadow: "shadow-garmz-card dark:shadow-dark-garmz-card",
   },
   solid: {
-    rounded: "rounded-tremor-default",
+    rounded: "rounded-garmz-default",
     border: border.md.all,
     ring: "ring-1",
     shadow: "",
   },
   outlined: {
-    rounded: "rounded-tremor-default",
+    rounded: "rounded-garmz-default",
     border: border.sm.all,
     ring: "ring-2",
     shadow: "",
@@ -100,7 +100,7 @@ export const getIconColors = (variant: IconVariant, color?: Color) => {
       return {
         textColor: color
           ? getColorClassNames(color, colorPalette.text).textColor
-          : "text-tremor-brand dark:text-dark-tremor-brand",
+          : "text-garmz-brand dark:text-dark-garmz-brand",
         bgColor: "",
         borderColor: "",
         ringColor: "",
@@ -109,10 +109,13 @@ export const getIconColors = (variant: IconVariant, color?: Color) => {
       return {
         textColor: color
           ? getColorClassNames(color, colorPalette.text).textColor
-          : "text-tremor-brand dark:text-dark-tremor-brand",
+          : "text-garmz-brand dark:text-dark-garmz-brand",
         bgColor: color
-          ? getColorClassNames(color, colorPalette.lightBackground).bgColor
-          : "bg-tremor-brand-muted dark:bg-dark-tremor-brand-muted",
+          ? garmzTwMerge(
+              getColorClassNames(color, colorPalette.background).bgColor,
+              "bg-opacity-20",
+            )
+          : "bg-garmz-brand-muted dark:bg-dark-garmz-brand-muted",
         borderColor: "",
         ringColor: "",
       };
@@ -120,38 +123,47 @@ export const getIconColors = (variant: IconVariant, color?: Color) => {
       return {
         textColor: color
           ? getColorClassNames(color, colorPalette.text).textColor
-          : "text-tremor-brand dark:text-dark-tremor-brand",
+          : "text-garmz-brand dark:text-dark-garmz-brand",
         bgColor: color
-          ? getColorClassNames(color, colorPalette.lightBackground).bgColor
-          : "bg-tremor-background dark:bg-dark-tremor-background",
-        borderColor: "border-tremor-border dark:border-dark-tremor-border",
+          ? garmzTwMerge(
+              getColorClassNames(color, colorPalette.background).bgColor,
+              "bg-opacity-20",
+            )
+          : "bg-garmz-background dark:bg-dark-garmz-background",
+        borderColor: "border-garmz-border dark:border-dark-garmz-border",
         ringColor: "",
       };
     case "solid":
       return {
         textColor: color
           ? getColorClassNames(color, colorPalette.text).textColor
-          : "text-tremor-brand-inverted dark:text-dark-tremor-brand-inverted",
+          : "text-garmz-brand-inverted dark:text-dark-garmz-brand-inverted",
         bgColor: color
-          ? getColorClassNames(color, colorPalette.lightBackground).bgColor
-          : "bg-tremor-brand dark:bg-dark-tremor-brand",
-        borderColor: "border-tremor-brand-inverted dark:border-dark-tremor-brand-inverted",
-        ringColor: "ring-tremor-ring dark:ring-dark-tremor-ring",
+          ? garmzTwMerge(
+              getColorClassNames(color, colorPalette.background).bgColor,
+              "bg-opacity-20",
+            )
+          : "bg-garmz-brand dark:bg-dark-garmz-brand",
+        borderColor: "border-garmz-brand-inverted dark:border-dark-garmz-brand-inverted",
+        ringColor: "ring-garmz-ring dark:ring-dark-garmz-ring",
       };
     case "outlined":
       return {
         textColor: color
           ? getColorClassNames(color, colorPalette.text).textColor
-          : "text-tremor-brand dark:text-dark-tremor-brand",
+          : "text-garmz-brand dark:text-dark-garmz-brand",
         bgColor: color
-          ? getColorClassNames(color, colorPalette.lightBackground).bgColor
-          : "bg-tremor-background dark:bg-dark-tremor-background",
+          ? garmzTwMerge(
+              getColorClassNames(color, colorPalette.background).bgColor,
+              "bg-opacity-20",
+            )
+          : "bg-garmz-background dark:bg-dark-garmz-background",
         borderColor: color
           ? getColorClassNames(color, colorPalette.ring).borderColor
-          : "border-tremor-brand-subtle dark:border-dark-tremor-brand-subtle",
+          : "border-garmz-brand-subtle dark:border-dark-garmz-brand-subtle",
         ringColor: color
-          ? getColorClassNames(color, colorPalette.lightRing).ringColor
-          : "ring-tremor-brand-muted dark:ring-dark-tremor-brand-muted",
+          ? garmzTwMerge(getColorClassNames(color, colorPalette.ring).ringColor, "ring-opacity-40")
+          : "ring-garmz-brand-muted dark:ring-dark-garmz-brand-muted",
       };
   }
 };

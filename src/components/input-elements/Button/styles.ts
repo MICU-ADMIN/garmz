@@ -1,7 +1,7 @@
-import { Sizing, fontSize, sizing, spacing, getColorClassNames } from "lib";
+import { fontSize, getColorClassNames, Sizing, sizing, spacing, garmzTwMerge } from "lib";
 
-import { Color, ButtonVariant } from "../../../lib/inputTypes";
 import { colorPalette } from "lib/theme";
+import { ButtonVariant, Color } from "../../../lib/inputTypes";
 
 export const iconSizes: { [size: string]: Sizing } = {
   xs: {
@@ -91,47 +91,50 @@ export const getButtonColors = (variant: ButtonVariant, color?: Color) => {
       return {
         textColor: color
           ? getColorClassNames("white").textColor
-          : "text-tremor-brand-inverted dark:text-dark-tremor-brand-inverted",
+          : "text-garmz-brand-inverted dark:text-dark-garmz-brand-inverted",
         hoverTextColor: color
           ? getColorClassNames("white").textColor
-          : "text-tremor-brand-inverted dark:text-dark-tremor-brand-inverted",
+          : "text-garmz-brand-inverted dark:text-dark-garmz-brand-inverted",
         bgColor: color
           ? getColorClassNames(color, colorPalette.background).bgColor
-          : "bg-tremor-brand dark:bg-dark-tremor-brand",
+          : "bg-garmz-brand dark:bg-dark-garmz-brand",
         hoverBgColor: color
           ? getColorClassNames(color, colorPalette.darkBackground).hoverBgColor
-          : "hover:bg-tremor-brand-emphasis dark:hover:bg-dark-tremor-brand-emphasis",
+          : "hover:bg-garmz-brand-emphasis dark:hover:bg-dark-garmz-brand-emphasis",
         borderColor: color
           ? getColorClassNames(color, colorPalette.border).borderColor
-          : "border-tremor-brand dark:border-dark-tremor-brand",
+          : "border-garmz-brand dark:border-dark-garmz-brand",
         hoverBorderColor: color
           ? getColorClassNames(color, colorPalette.darkBorder).hoverBorderColor
-          : "hover:border-tremor-brand-emphasis dark:hover:border-dark-tremor-brand-emphasis",
+          : "hover:border-garmz-brand-emphasis dark:hover:border-dark-garmz-brand-emphasis",
       };
     case "secondary":
       return {
         textColor: color
           ? getColorClassNames(color, colorPalette.text).textColor
-          : "text-tremor-brand dark:text-dark-tremor-brand",
+          : "text-garmz-brand dark:text-dark-garmz-brand",
         hoverTextColor: color
           ? getColorClassNames(color, colorPalette.text).textColor
-          : "hover:text-tremor-brand-emphasis dark:hover:text-dark-tremor-brand-emphasis",
+          : "hover:text-garmz-brand-emphasis dark:hover:text-dark-garmz-brand-emphasis",
         bgColor: getColorClassNames("transparent").bgColor,
         hoverBgColor: color
-          ? getColorClassNames(color, colorPalette.lightBackground).hoverBgColor
-          : "hover:bg-tremor-brand-faint dark:hover:bg-dark-tremor-brand-faint",
+          ? garmzTwMerge(
+              getColorClassNames(color, colorPalette.background).hoverBgColor,
+              "hover:bg-opacity-20 dark:hover:bg-opacity-20",
+            )
+          : "hover:bg-garmz-brand-faint dark:hover:bg-dark-garmz-brand-faint",
         borderColor: color
           ? getColorClassNames(color, colorPalette.border).borderColor
-          : "border-tremor-brand dark:border-dark-tremor-brand",
+          : "border-garmz-brand dark:border-dark-garmz-brand",
       };
     case "light":
       return {
         textColor: color
           ? getColorClassNames(color, colorPalette.text).textColor
-          : "text-tremor-brand dark:text-dark-tremor-brand",
+          : "text-garmz-brand dark:text-dark-garmz-brand",
         hoverTextColor: color
           ? getColorClassNames(color, colorPalette.darkText).hoverTextColor
-          : "hover:text-tremor-brand-emphasis dark:hover:text-dark-tremor-brand-emphasis",
+          : "hover:text-garmz-brand-emphasis dark:hover:text-dark-garmz-brand-emphasis",
         bgColor: getColorClassNames("transparent").bgColor,
         borderColor: "",
         hoverBorderColor: "",

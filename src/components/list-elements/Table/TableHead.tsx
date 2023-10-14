@@ -1,5 +1,5 @@
+import { makeClassName, garmzTwMerge } from "lib";
 import React from "react";
-import { tremorTwMerge, makeClassName } from "lib";
 
 const makeTableHeadClassName = makeClassName("TableHead");
 
@@ -12,14 +12,14 @@ const TableHead = React.forwardRef<
     <>
       <thead
         ref={ref}
-        className={tremorTwMerge(
+        className={garmzTwMerge(
           makeTableHeadClassName("root"),
           // common
           "text-left",
           // light
-          "text-tremor-content",
+          "text-garmz-content",
           // dark
-          "dark:text-dark-tremor-content",
+          "dark:text-dark-garmz-content",
           className,
         )}
         {...other}

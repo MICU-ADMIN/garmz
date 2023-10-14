@@ -1,8 +1,8 @@
+import { garmzTwMerge } from "lib";
 import React from "react";
-import { tremorTwMerge } from "lib";
 
-import { GridClassesMapping, gridCols, gridColsLg, gridColsMd, gridColsSm } from "./styles";
 import { makeClassName } from "lib";
+import { GridClassesMapping, gridCols, gridColsLg, gridColsMd, gridColsSm } from "./styles";
 
 const makeGridClassName = makeClassName("Grid");
 
@@ -28,12 +28,12 @@ const Grid = React.forwardRef<HTMLDivElement, GridProps>((props, ref) => {
   const colsMd = getGridCols(numItemsMd, gridColsMd);
   const colsLg = getGridCols(numItemsLg, gridColsLg);
 
-  const colClassNames = tremorTwMerge(colsBase, colsSm, colsMd, colsLg);
+  const colClassNames = garmzTwMerge(colsBase, colsSm, colsMd, colsLg);
 
   return (
     <div
       ref={ref}
-      className={tremorTwMerge(makeGridClassName("root"), "grid", colClassNames, className)}
+      className={garmzTwMerge(makeGridClassName("root"), "grid", colClassNames, className)}
       {...other}
     >
       {children}

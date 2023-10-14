@@ -1,10 +1,10 @@
 "use client";
+import { garmzTwMerge } from "lib";
 import React from "react";
-import { tremorTwMerge } from "lib";
 
-import { colorPalette, makeClassName, spacing, getColorClassNames, mergeRefs } from "lib";
-import { Color } from "../../../lib/inputTypes";
 import Tooltip, { useTooltip } from "components/util-elements/Tooltip/Tooltip";
+import { colorPalette, getColorClassNames, makeClassName, mergeRefs, spacing } from "lib";
+import { Color } from "../../../lib/inputTypes";
 
 export const makeTrackerClassName = makeClassName("Tracker");
 
@@ -22,9 +22,9 @@ const TrackerBlock = React.forwardRef<HTMLDivElement, TrackerBlockProps>((props,
   return (
     <div
       ref={mergeRefs([ref, tooltipProps.refs.setReference])}
-      className={tremorTwMerge(
+      className={garmzTwMerge(
         makeTrackerClassName("trackingBlock"),
-        "w-full h-full rounded-tremor-small",
+        "w-full h-full rounded-garmz-small",
         getColorClassNames(color ?? "gray", colorPalette.background).bgColor,
       )}
       {...other}
@@ -46,7 +46,7 @@ const Tracker = React.forwardRef<HTMLDivElement, TrackerProps>((props, ref) => {
   return (
     <div
       ref={ref}
-      className={tremorTwMerge(
+      className={garmzTwMerge(
         makeTrackerClassName("root"),
         "w-full flex items-center h-10",
         spacing.threeXs.spaceX,

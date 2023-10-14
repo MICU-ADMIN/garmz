@@ -1,5 +1,5 @@
 import Tooltip, { useTooltip } from "components/util-elements/Tooltip/Tooltip";
-import { Color, colorPalette, getColorClassNames, makeClassName, tremorTwMerge } from "lib";
+import { Color, colorPalette, getColorClassNames, makeClassName, garmzTwMerge } from "lib";
 import React from "react";
 
 const makeProgressCircleClassName = makeClassName("ProgressBar");
@@ -80,7 +80,7 @@ const ProgressCircle = React.forwardRef<HTMLDivElement, ProgressCircleProps>((pr
       <Tooltip text={tooltip} {...tooltipProps} />
       <div
         ref={ref}
-        className={tremorTwMerge(
+        className={garmzTwMerge(
           makeProgressCircleClassName("root"),
           "flex flex-col items-center justify-center",
           className,
@@ -103,13 +103,13 @@ const ProgressCircle = React.forwardRef<HTMLDivElement, ProgressCircleProps>((pr
             fill="transparent"
             stroke=""
             strokeLinecap="round"
-            className={tremorTwMerge(
+            className={garmzTwMerge(
               "transition-colors ease-linear",
               color
                 ? `${
                     getColorClassNames(color, colorPalette.background).strokeColor
                   } opacity-20 dark:opacity-25`
-                : "stroke-tremor-brand-muted/50 dark:stroke-dark-tremor-brand-muted",
+                : "stroke-garmz-brand-muted/50 dark:stroke-dark-garmz-brand-muted",
             )}
           />
           {value > 0 ? (
@@ -123,17 +123,17 @@ const ProgressCircle = React.forwardRef<HTMLDivElement, ProgressCircleProps>((pr
               fill="transparent"
               stroke=""
               strokeLinecap="round"
-              className={tremorTwMerge(
+              className={garmzTwMerge(
                 "transition-colors ease-linear",
                 color
                   ? getColorClassNames(color, colorPalette.background).strokeColor
-                  : "stroke-tremor-brand dark:stroke-dark-tremor-brand",
+                  : "stroke-garmz-brand dark:stroke-dark-garmz-brand",
                 showAnimation ? "transition-all duration-300 ease-in-out" : "",
               )}
             />
           ) : null}
         </svg>
-        <div className={tremorTwMerge("absolute flex")}>{children}</div>
+        <div className={garmzTwMerge("absolute flex")}>{children}</div>
       </div>
     </>
   );
