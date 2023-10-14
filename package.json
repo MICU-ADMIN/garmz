@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/garmzlabs/garmz.git"
+    "url": "https://github.com/Mosque-ICU/garmz.git"
   },
   "author": "garmz",
   "license": "Apache 2.0",
   "bugs": {
-    "url": "https://github.com/garmzlabs/garmz/issues"
+    "url": "https://github.com/Mosque-ICU/garmz/issues"
   },
-  "homepage": "https://github.com/garmzlabs/garmz#readme",
+  "homepage": "https://github.com/Mosque-ICU/garmz#readme",
   "dependencies": {
     "@floating-ui/react": "^0.19.1",
     "@headlessui/react": "^1.7.14",
